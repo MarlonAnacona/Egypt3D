@@ -8,7 +8,7 @@ export function Login(){
     <h2 className="login-title">Iniciar Sesión</h2>
 
       <div className="form-group ">
-        <input className='textfield'type="text" id="username" placeholder='Correo Electronico'/>
+        <input className='textfield'type="text" id="email" placeholder='Correo Electronico'/>
       </div>
       <div className="form-group letter">
         <input className='textfield' type="password" id="password" placeholder='Contraseña' />
