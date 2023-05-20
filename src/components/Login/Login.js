@@ -9,26 +9,14 @@ export function Login() {
         <h2 className="login-title">Iniciar Sesión</h2>
         <h4 className="login-text">Un gusto tenerte de vuelta!</h4>
 
-        <div className="form-group ">
-          <input
-            className="textfield"
-            type="text"
-            id="username"
-            placeholder="Correo Electronico"
-          />
-        </div>
-        <div className="form-group letter">
-          <input
-            className="textfield"
-            type="password"
-            id="password"
-            placeholder="Contraseña"
-          />
-        </div>
-        <button type="submit" className="login-button">
-          Ingresar
-        </button>
-      </form>
-    </div>
-  );
+      <div className="form-group ">
+        <input className='textfield'type="text" id="email" placeholder='Correo Electronico'/>
+      </div>
+      <div className="form-group letter">
+        <input className='textfield' type="password" id="password" placeholder='Contraseña' />
+      </div>
+      <button type="submit" className="login-button">Ingresar</button>
+    </form>
+  </div>
+    )
 }
