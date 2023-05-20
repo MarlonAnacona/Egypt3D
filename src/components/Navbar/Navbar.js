@@ -6,9 +6,9 @@ const Navbar = () => {
     <div className="Navbar">
       <span className="nav-logo">Egypt 3D</span>
       <div className={`nav-items ${isOpen && "open"}`}>
-        <a href="/home">Inicio</a>
+        <a href="/">Inicio</a>
         <a href="/modules">Modulos</a>
-        <a href="/resgister">Registrate</a>
+        <a href="/register">Registrate</a>
         <a href="/login">Inicia Sesion</a>
       </div>
       <div
