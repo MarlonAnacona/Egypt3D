@@ -1,79 +1,97 @@
-.login-form {
-   
-    width: 545px;
-    height: 552px;
-    left: 447px;
-    top: 236px;
-    
-    background: rgba(18, 18, 18, 0.88);
-    /* Elevation/Outlined Dark */  
-    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
-    border-radius: 20px;
-  }
 
+.login-form {
+  width: 545px;
+  height: 552px;
+  left: 447px;
+  top: 236px;
+  justify-content: center;
+  display: flex;
+  background: rgba(18, 18, 18, 0.88);
+  /* Elevation/Outlined Dark */
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
 
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-title {
-color: #fff;   
-font-size: 30px; 
-font-style: normal;
-margin-left: 31%;
-margin-bottom: 10%;
-
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    justify-content: center;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-    margin-left: 11%;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    padding: 15px;
-    width: 200%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-left: 10%;
-  }
-  
-  .login-button {
-    padding: 15px;
-    background-color: #8000FF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    margin-left: 10%;
-    width: 80%;
-    
-  }
-  
-
-.letter{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+  min-width: 480px;
+  display: flex;
+  padding: 30px;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
 }
-.textfield{
-background-color: #624b7900;
-color: #fff;
+
+
+
+.login-title {
+  color: #fff;
+  font-size: 30px;
+  font-style: normal;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+.login-text {
+  color: #fff;
+  font-size: 15px;
+  font-style: italic;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 15px;
+  width: 200%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10%;
+  justify-content: center;
+}
+
+.login-button {
+  outline: none;
+  border: none;
+  background-color: #9900ff;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 15px;
+  margin-left: 4%;
+  width: 88%;
+  transition: 100ms;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.letter {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.textfield {
+  background-color: #624b7900;
+  border-color: #ccc;
+  border-radius: 10px;
+  width: 250%;
 }
