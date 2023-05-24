@@ -6,7 +6,6 @@ export function Register() {
     <div className="register-container">
       <form className="register-form">
         <h2 className="register-title">Registro</h2>
-
         <div className="form-group">
           <input className="textfield" type="text" id="name" placeholder="Nombre" />
         </div>

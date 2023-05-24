@@ -38,7 +38,6 @@
 
 .form-group {
     margin-bottom: 20px;
-    margin-left: 11%;
 }
 
 label {
@@ -47,11 +46,9 @@ label {
 }
 
 input {
-    padding: 15px;
-    width: 200%;
+    padding: 15px;  
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-left: 10%;
 }
 
 .register-button {
@@ -60,9 +57,8 @@ input {
     color: #fff;
     border: none;
     border-radius: 4px;
-    margin-left: 10%;
-    width: 80%;
-
+    width: 90%;
+    margin-left: 5%;
 }
 
 
