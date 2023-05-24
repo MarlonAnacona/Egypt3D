@@ -5,7 +5,7 @@
 }
 
 .App {
-    background-image : url(/public/images/egipto.jpg);
+    background-image : url(/public/images/fondo_estrellas.jpg);
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
