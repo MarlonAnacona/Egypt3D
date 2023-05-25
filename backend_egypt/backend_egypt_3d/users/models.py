@@ -33,6 +33,7 @@ class UserProfile(AbstractUser, PermissionsMixin):
     
     first_name = None
     last_name = None
+    username = models.CharField(max_length=30, null=False, blank=False, unique=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=200, validators=[validators.MinLengthValidator(8)])
     profile_image = models.ImageField(null=True, blank=True, upload_to='profile_pictures/')
