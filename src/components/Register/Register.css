@@ -16,16 +16,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .register-title {
     color: #fff;
     font-size: 30px;
     font-style: normal;
-    margin-left: 40%;
-    margin-bottom: 10%;
+    margin-left: 5%;
+    margin-bottom: 5%;
 
+}
+
+.register-text {
+    color: #fff;
+    font-size: 15px;
+    font-style: italic;
+    margin-left: 5%;
+    margin-bottom: 5%;
 }
 
 .register-form {
@@ -46,7 +54,7 @@ label {
 }
 
 input {
-    padding: 15px;  
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
