@@ -8,6 +8,7 @@ import { ModuloArquitectura } from "../components/Modules/ModuloArquitectura";
 import { ModuloArte } from "../components/Modules/ModuloArte";
 import { ModuloMitologia } from "../components/Modules/ModuloMitologia";
 import { ModuloCostumbres } from "../components/Modules/ModuloCostumbres";
+import { Quiz } from "../components/Quices/quiz";
 
 export function MyRoutes(){
     return(
@@ -22,6 +23,7 @@ export function MyRoutes(){
                 <Route path="/moduloArte" element={<ModuloArte/>}/>
                 <Route path="/moduloMitologia" element={<ModuloMitologia/>}/>
                 <Route path="/moduloCostumbres" element={<ModuloCostumbres/>}/>
+                <Route path="/quices" element={<Quiz/>}/>
             </Routes>
         </Router>
     )
