@@ -1,0 +1,31 @@
+.inicio {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  margin-top: 40vh;
+}
+
+.Contenedor {
+  display: flex;
+  justify-content: space-between;
+}
+
+.izquierda {
+  flex: 1;
+  margin-left: 5vh;
+}
+
+.derecha {
+  flex: 1;
+  
+}
+
+.titulo-modulo {
+  font-size: 40px;
+  color: white;
+}
+
+.contenido-modulo {
+  font-size: 18px;
+  color: white;
+}

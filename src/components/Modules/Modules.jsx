@@ -40,9 +40,9 @@ export function Modules() {
         className={`card ${activeCard === "Arquitectura" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Arquitectura")}
         onMouseLeave={() => setActiveCard(null)}
-        onClick={() => handleClick("Historia")}
+        onClick={() => handleClick("Arquitectura")}
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/historia.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/arquitectura.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -62,9 +62,9 @@ export function Modules() {
         className={`card ${activeCard === "Mitologia" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Mitologia")}
         onMouseLeave={() => setActiveCard(null)}
-        onClick={() => handleClick("Historia")}
+        onClick={() => handleClick("Mitologia")}
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/historia.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/mitologia.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -84,9 +84,9 @@ export function Modules() {
         className={`card ${activeCard === "Arte" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Arte")}
         onMouseLeave={() => setActiveCard(null)}
-        onClick={() => handleClick("Historia")}
+        onClick={() => handleClick("Arte")}
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/historia.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/Arte.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -107,9 +107,9 @@ export function Modules() {
         className={`card ${activeCard === "Costumbres" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Costumbres")}
         onMouseLeave={() => setActiveCard(null)}
-        onClick={() => handleClick("Historia")}
+        onClick={() => handleClick("Costumbres")}
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/historia.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/costumbres.jpeg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
