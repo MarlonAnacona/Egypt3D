@@ -8,3 +8,9 @@ from .serializers import UserProfileSerializer
 class CreateUserProfileView(generics.CreateAPIView):
     serializer_class = UserProfileSerializer
     permission_classes = [permissions.AllowAny]
+
+
+class RetriveUserProfileInfoView(generics.RetrieveAPIView):
+    serializer_class = UserProfileSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    
