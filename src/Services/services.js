@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000";
+const URL = "https://marlonanacona.pythonanywhere.com";
 
 const endpoints = {
   users: {
