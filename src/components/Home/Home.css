@@ -33,6 +33,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
     margin-left: 10px;
     margin-top: 40vh;
 
@@ -43,7 +44,7 @@
     /* Ajusta el ancho y el alto según tus necesidades */
     height: 70px;
     border-radius: 50%;
-    background-color: white;
+    background-color: transparent;
     border: none;
     padding: 0;
     display: flex;
@@ -51,18 +52,18 @@
     justify-content: center;
     cursor: pointer;
     margin-right: 20px;
-    margin-top: 20vh;
+    margin-top: 30vh;
 }
 .circle_button img {
-    width: 100%; /* Ajusta el tamaño de la imagen dentro del botón */
-    height: 100%;
+    width: 80%; /* Ajusta el tamaño de la imagen dentro del botón */
+    height: 80%;
     object-fit: cover;
-    border-radius: 50%;
+
   }
 
   .circle_button1 img {
-    width: 100%; /* Ajusta el tamaño de la imagen dentro del botón */
-    height: 100%;
+    width: 90%; /* Ajusta el tamaño de la imagen dentro del botón */
+    height: 90%;
     object-fit: cover;
-    border-radius: 50%;
+ 
   }
