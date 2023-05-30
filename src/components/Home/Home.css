@@ -22,9 +22,9 @@
 }
 
 .circle_button {
-    width: 70px;
+    width: 50px;
     /* Ajusta el ancho y el alto según tus necesidades */
-    height: 70px;
+    height: 50px;
     border-radius: 50%;
     background-color: transparent;
     border: none;
@@ -40,9 +40,9 @@
 }
 
 .circle_button1 {
-    width: 70px;
+    width: 50px;
     /* Ajusta el ancho y el alto según tus necesidades */
-    height: 70px;
+    height: 50px;
     border-radius: 50%;
     background-color: transparent;
     border: none;
