@@ -1,7 +1,68 @@
-.inicio {
-    font-size: 30px; /* Tamaño de fuente deseado */
-    text-align: center; /* Para centrar el texto */
-    color: white; /* Para hacer el texto blanco */
+.home_page {
+    background-image: url(/public/images/inicio.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+}
+
+.informacion {
+    background-color: aliceblue;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+}
+
+.bienvenida {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.circle_button {
+    width: 70px;
+    /* Ajusta el ancho y el alto según tus necesidades */
+    height: 70px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 10px;
     margin-top: 40vh;
+
+}
+
+.circle_button1 {
+    width: 70px;
+    /* Ajusta el ancho y el alto según tus necesidades */
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 20vh;
+}
+.circle_button img {
+    width: 100%; /* Ajusta el tamaño de la imagen dentro del botón */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
   }
-  
+
+  .circle_button1 img {
+    width: 100%; /* Ajusta el tamaño de la imagen dentro del botón */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
