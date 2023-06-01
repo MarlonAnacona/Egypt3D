@@ -69,19 +69,31 @@
 }
 
 .flecha_navegationDer {
+  transition: transform 0.3s ease;
   width: 40px;
   float: right;
   margin-top: 1vh;
   margin-right: 2vh;
 }
 
+.flecha_navegationDer:hover {
+  transform: scale(1.2); /* Escalar la imagen al 110% */
+}
+
 .navegacion {
   overflow: auto;
+  height: 10vh;
 }
 
 .flecha_navegationIzq {
+  transition: transform 0.3s ease;
   width: 40px;
   float: left;
   margin-top: 1vh;
   margin-right: 2vh;
+  margin-left: 1vh;
+}
+
+.flecha_navegationIzq:hover {
+  transform: scale(1.2); /* Escalar la imagen al 110% */
 }
