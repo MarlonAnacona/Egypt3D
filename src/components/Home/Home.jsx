@@ -33,7 +33,10 @@ export function Home() {
           {currentSection !== 2 && (
             <button className="circle_button" onClick={() => handleSectionChange(2)}><img src="/images/flecha-correcta1.png" alt="Icono de la sección 1" /></button>
           )}
-          <h2>Sección Noticias y foro</h2>
+          <div className='page_notices'>
+
+          </div>
+          <div className='page_foro'></div>
         </div>
       )}
     </div>

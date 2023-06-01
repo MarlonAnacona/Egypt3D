@@ -16,6 +16,11 @@
 .izquierda {
   flex: 1;
   margin-left: 5vh;
+}
+
+.izquierda1 {
+  flex: 1;
+  margin-left: 5vh;
   margin-top: 10vh;
 }
 
@@ -61,4 +66,22 @@
   height: 30px;
   margin-right: 5px;
   vertical-align: middle;
+}
+
+.flecha_navegationDer {
+  width: 40px;
+  float: right;
+  margin-top: 1vh;
+  margin-right: 2vh;
+}
+
+.navegacion {
+  overflow: auto;
+}
+
+.flecha_navegationIzq {
+  width: 40px;
+  float: left;
+  margin-top: 1vh;
+  margin-right: 2vh;
 }

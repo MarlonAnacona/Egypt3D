@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './estiloModulos.css'
+import { Link } from 'react-router-dom';
 
 export function ModuloCostumbres() {
     const navigate = useNavigate();
@@ -11,6 +12,11 @@ export function ModuloCostumbres() {
     return (
         <div className="Contenedor">
             <div className='izquierda'>
+                <div className='navegacion'>
+                    <Link to='/moduloArte'>
+                        <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
+                    </Link>
+                </div>
                 <div className='titulo-modulo'>COSTUMBRES</div>
                 <div className='contenido-modulo'>Las costumbres del antiguo Egipto reflejaban la vida cotidiana y las creencias arraigadas en esta antigua civilización. Los egipcios tenían una sociedad jerárquica y organizada, donde el faraón era considerado un dios en la Tierra y gobernaba con poder absoluto. La religión desempeñaba un papel central en la vida de los egipcios, y se practicaban rituales y ceremonias para honrar a los dioses y asegurar la prosperidad y la vida después de la muerte. La vida familiar era valorada, y el matrimonio y la crianza de los hijos eran considerados importantes. La agricultura era la base de la economía, y los egipcios desarrollaron sistemas de irrigación para aprovechar el Nilo y cultivar sus tierras fértiles. Además, el comercio y la artesanía florecieron, y se produjeron objetos como joyas, cerámica y textiles de alta calidad.</div>
                 <button className='buttonQuiz' onClick={handleQuicesClick}>
