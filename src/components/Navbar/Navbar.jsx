@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="Navbar">
-      <span className="nav-logo">Egypt 3D</span>
+      <img src="/images/logo.png" alt="Logo" className="nav-logo" />
+      <span className="nav-title">Egypt 3D</span>
       <div className={`nav-items ${isOpen && "open"}`}>
         <a href="/">Inicio</a>
         <a href="/modules">Modulos</a>

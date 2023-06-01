@@ -9,6 +9,7 @@ import { ModuloArte } from "../components/Modules/ModuloArte";
 import { ModuloMitologia } from "../components/Modules/ModuloMitologia";
 import { ModuloCostumbres } from "../components/Modules/ModuloCostumbres";
 import { Quiz } from "../components/Quices/quiz";
+import { Profile } from "../components/Profile/Profile"
 
 export function MyRoutes(){
     return(
@@ -24,6 +25,7 @@ export function MyRoutes(){
                 <Route path="/moduloMitologia" element={<ModuloMitologia/>}/>
                 <Route path="/moduloCostumbres" element={<ModuloCostumbres/>}/>
                 <Route path="/quices" element={<Quiz/>}/>
+                <Route path="/profile" element={<Profile/>}/>
             </Routes>
         </Router>
     )
