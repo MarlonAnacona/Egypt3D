@@ -16,6 +16,7 @@ export function MyRoutes(){
         <Router>
             <Routes>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/Inicio" element={<Home/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/modules" element={<Modules/>}/>
