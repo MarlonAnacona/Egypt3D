@@ -1,12 +1,14 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
+import { LoginWrapper } from "./components/context/LoginContext";
 import { MyRoutes } from "./routes/routes";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <MyRoutes />
-    </div>
+      <LoginWrapper>
+              <Navbar />
+  <MyRoutes /> 
+</LoginWrapper>    </div>
   );
 }
 
