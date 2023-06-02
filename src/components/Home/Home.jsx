@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import './Home.css';
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import { LoginContext } from '../context/LoginContext';
 
 export function Home() {
+  useEffect(()=>{
+    localStorage.removeItem("token")
+    setIsLogged(false)
+
+  },[])
+  const { setIsLogged } = useContext(LoginContext);
+
   const [currentSection, setCurrentSection] = useState(1);
 
   const handleSectionChange = (sectionNumber) => {

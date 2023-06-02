@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { addUser } from '../../Services/users';
 import Swal from 'sweetalert2';
 import {  useNavigate } from 'react-router-dom';
 import './Register.css';
+import { useContext } from 'react';
+import { LoginContext } from '../context/LoginContext';
 
 
 export function Register() {
+  useEffect(()=>{
+    setIsLogged(false)
+
+  },[])
+
+  
+  const { setIsLogged } = useContext(LoginContext);
   let navigate = useNavigate();
 
   const [formData, setFormData] = useState({

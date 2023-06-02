@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
@@ -8,6 +8,11 @@ import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 
 export function Login() {
+  useEffect(()=>{
+    localStorage.removeItem("token")
+    setIsLogged(false)
+
+  },[])
   let navigate = useNavigate();
 
   const { setIsLogged } = useContext(LoginContext);

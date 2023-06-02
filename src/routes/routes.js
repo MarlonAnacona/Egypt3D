@@ -1,5 +1,5 @@
 import {
-    BrowserRouter as Router,
+   
     Routes,
     Route,
     BrowserRouter,
@@ -34,7 +34,6 @@ import {
             <Route path="/moduloCostumbres" element={<ModuloCostumbres />} />
             <Route path="/quices" element={<Quiz />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/*" element={<Navigate to="/" replace={true} />} />
 
           </Routes>
         ) : (
@@ -43,6 +42,8 @@ import {
            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/*" element={<Navigate to="/" replace={true} />} />
+
           </Routes>
         )}
       </BrowserRouter>
