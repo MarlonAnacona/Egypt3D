@@ -8,8 +8,9 @@ export function Home() {
   useEffect(()=>{
     localStorage.removeItem("token")
     setIsLogged(false)
+  // eslint-disable-next-line no-use-before-define
+  },[setIsLogged])
 
-  },[])
   const { setIsLogged } = useContext(LoginContext);
 
   const [currentSection, setCurrentSection] = useState(1);
