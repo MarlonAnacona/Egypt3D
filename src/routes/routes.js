@@ -21,7 +21,6 @@ import {
   
   export function MyRoutes() {
     const { isLogged } = useContext(LoginContext);
-    console.log("soy"+isLogged)
     return (
       <BrowserRouter>
         {isLogged ? (
@@ -40,9 +39,9 @@ import {
         ) : (
           <Routes>
   
-           <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+           <Route path="/" element={<Home />} exact />
+            <Route path="/login" element={<Login />}exact/>
+            <Route path="/register" element={<Register />} exact/>
           </Routes>
         )}
       </BrowserRouter>

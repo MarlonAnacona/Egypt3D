@@ -3,14 +3,14 @@ import "./Navbar.css";
 import { LoginContext } from "../context/LoginContext";
 
 const Navbar = () => {
+
   const [isOpen, setIsOpen] = useState(false);
   //const [isLoggedIn, setIsLoggedIn]=useState(false)
   const {isLogged,setIsLogged}=useContext(LoginContext)
-  console.log(isLogged)
   const handleLogout = () => {
     // Lógica para cerrar sesión
-    setIsLogged(!isLogged);
-    console.log(isLogged)
+    localStorage.removeItem("token")
+    setIsLogged(false);
   };
   return (
     <div className="Navbar">

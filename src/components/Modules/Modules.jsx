@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import {  useState } from "react";
 import "./Modules.css";
 
 export function Modules() {
+
   const navigate = useNavigate();
 
+
+  
   const [activeCard, setActiveCard] = useState(null);
 
   const handleClick = (moduleName) => {
