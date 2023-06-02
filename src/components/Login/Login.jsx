@@ -12,8 +12,8 @@ export function Login() {
     localStorage.removeItem("token")
     setIsLogged(false)
 
-  // eslint-disable-next-line no-use-before-define
-  },[setIsLogged])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+},[])
   let navigate = useNavigate();
 
   const { setIsLogged } = useContext(LoginContext);
