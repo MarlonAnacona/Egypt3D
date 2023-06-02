@@ -21,6 +21,7 @@ import {
   
   export function MyRoutes() {
     const { isLogged } = useContext(LoginContext);
+    console.log("soy"+isLogged)
     return (
       <BrowserRouter>
         {isLogged ? (
@@ -35,28 +36,6 @@ import {
             <Route path="/quices" element={<Quiz />} />
             <Route path="/profile" element={<Profile />} />
 
-<<<<<<< HEAD
-export function MyRoutes(){
-    return(
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/Inicio" element={<Home/>}/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/register" element={<Register/>}/>
-                <Route path="/modules" element={<Modules/>}/>
-                <Route path="/moduloHistoria" element={<ModuloHistoria/>}/>
-                <Route path="/moduloArquitectura" element={<ModuloArquitectura/>}/>
-                <Route path="/moduloArte" element={<ModuloArte/>}/>
-                <Route path="/moduloMitologia" element={<ModuloMitologia/>}/>
-                <Route path="/moduloCostumbres" element={<ModuloCostumbres/>}/>
-                <Route path="/quices" element={<Quiz/>}/>
-                <Route path="/profile" element={<Profile/>}/>
-            </Routes>
-        </Router>
-    )
-}
-=======
           </Routes>
         ) : (
           <Routes>
@@ -64,11 +43,8 @@ export function MyRoutes(){
            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/*" element={<Navigate to="/" replace={true} />} />
-
           </Routes>
         )}
       </BrowserRouter>
     );
   }
->>>>>>> c15538167f52372c9450bcc11b4f37440cbcadb8
