@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import Modal from 'react-modal';
 import "./Profile.css";
+import { useEffect } from 'react';
+import jwt_decode from "jwt-decode";
+import { getUser } from '../../Services/users';
 
 export function Profile() {
+  const data= jwt_decode(localStorage.getItem("token"))
+  useEffect(()=>{
+    getUser(data.user_id).then((response)=>{
+      setName(response.username)
+      setEmail(response.email)
+      if(response.profile_image){
+        setName(response.username)
+      }
+      
+    })
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+},[])
+ 
+
     const [avatar, setAvatar] = useState('/images/perfil.png');
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const [name, setName] = useState(data.username);
+    const [email, setEmail] = useState(data.email);
     const [showChangePassword, setShowChangePassword] = useState(false);
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showAvatarSelector, setShowAvatarSelector] = useState(false);
+  
+  
     const avatars = [
         '/images/anubis.png',
         '/images/momia.png',

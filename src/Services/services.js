@@ -5,6 +5,8 @@ const endpoints = {
     getAll: `${URL}/users`,
     login: `${URL}/users/login/`,
     register: `${URL}/users/create-profile/`,
+    getUser: `${URL}/users/profile/`,
+    updateUser: `${URL}/users/profile/update/`,
   },
   products: {},
   workers: {},
