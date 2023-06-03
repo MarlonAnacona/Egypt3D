@@ -13,13 +13,13 @@ class CreateUserProfileView(generics.CreateAPIView):
 
 class RetriveUserProfileInfoView(generics.RetrieveAPIView):
     serializer_class = UserProfileSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = UserProfile.objects.all()
     lookup_field = 'pk'
 
 class UpdateUserProfileView(generics.UpdateAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
     lookup_field = 'pk'
     
