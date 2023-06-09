@@ -25,7 +25,30 @@ export function ModuloHistoria() {
                         <img src="/images/navegarDer.png" alt="flecha" className="flecha_navegationDer" />
                     </Link>
                 </div>
-                <div className='titulo-modulo'>Aqui va el modelo 3d uwu</div>
+                <div className='titulo-modulo'>
+                <div className="sketchfab-embed-wrapper">
+              <iframe
+                style={{
+                  width: "500px",
+                  height: "500px",
+                  borderRadius: "10px",
+                  boxShadow: "0px 0px 7px rgba(0, 0, 0, 0.8)",
+                }}
+                title="Egipto"
+                frameBorder="0"
+                allowFullScreen={true}
+                mozallowfullscreen="true"
+                webkitallowfullscreen="true"
+                allow="autoplay; fullscreen; xr-spatial-tracking"
+                xr-spatial-tracking="true"
+                execution-while-out-of-viewport="true"
+                execution-while-not-rendered="true"
+                web-share="true"
+                src="https://sketchfab.com/3d-models/tutankhamun-golden-mask-4d5723e76ef446daabc293ce8fc332b8/embed"
+              ></iframe>
+            </div>
+                
+                </div>
             </div>
         </div>
     );
