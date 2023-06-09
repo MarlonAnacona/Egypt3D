@@ -28,6 +28,12 @@
   flex: 1;
 }
 
+.derecha1 {
+  flex: 1;
+  margin-left: 5vh;
+  margin-top: 10vh;
+}
+
 .titulo-modulo {
   font-size: 60px;
   color: white;

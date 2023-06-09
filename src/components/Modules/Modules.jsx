@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import {  useState } from "react";
 import "./Modules.css";
+import ReactAudioPlayer from 'react-audio-player';
+import song from '../audio/song.mp3'
+
 
 export function Modules() {
 
@@ -17,6 +20,20 @@ export function Modules() {
 
   return (
     <div className="card-container">
+          <ReactAudioPlayer
+        src={song}
+        controls
+        autoPlay
+        preload="metadata"
+        style={{
+          position: 'fixed',
+          bottom: '10px',
+          left: '10px',
+          width: '200px',
+          height: '20px',
+          zIndex: '9999',
+        }}
+      />
       <div
         className={`card ${activeCard === "Historia" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Historia")}

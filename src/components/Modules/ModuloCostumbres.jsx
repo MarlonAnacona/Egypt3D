@@ -24,8 +24,28 @@ export function ModuloCostumbres() {
                     QUIZ
                 </button> {/* Redirecciona a '/quices' */}
             </div>
-            <div className='derecha'>
-                <div className='titulo-modulo'>Aqui va el modelo 3d uwu</div>
+            <div className='derecha1'>
+                <div className='titulo-modulo'>
+                    <iframe
+                        style={{
+                            width: "500px",
+                            height: "500px",
+                            borderRadius: "10px",
+                            boxShadow: "0px 0px 7px rgba(0, 0, 0, 0.8)",
+                        }}
+                        title="Egipto"
+                        frameBorder="0"
+                        allowFullScreen={true}
+                        mozallowfullscreen="true"
+                        webkitallowfullscreen="true"
+                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                        xr-spatial-tracking="true"
+                        execution-while-out-of-viewport="true"
+                        execution-while-not-rendered="true"
+                        web-share="true"
+                        src="https://sketchfab.com/3d-models/coffins-of-pa-di-mut-mut-iy-y-and-ankh-khonsu-012ae83b8d9045468b30584883149035/embed"
+                    ></iframe>
+                </div>
             </div>
         </div>
     )

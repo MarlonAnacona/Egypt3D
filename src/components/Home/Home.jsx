@@ -4,12 +4,14 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { LoginContext } from '../context/LoginContext';
 
+
+
 export function Home() {
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.removeItem("token")
     setIsLogged(false)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-},[])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const { setIsLogged } = useContext(LoginContext);
 
@@ -25,12 +27,12 @@ export function Home() {
         <div className="bienvenida">
           {currentSection !== 1 && (
             <button className="circle_button1" onClick={() => handleSectionChange(1)}>
-                 <img src="/images/flecha-correcta.png" alt="Icono de la sección 1" />
+              <img src="/images/flecha-correcta.png" alt="Icono de la sección 1" />
             </button>
           )}
           {currentSection !== 2 && (
             <button className="circle_button1" onClick={() => handleSectionChange(2)}>
-                <img src="/images/flecha-correcta.png" alt="Icono de la sección 1" />
+              <img src="/images/flecha-correcta.png" alt="Icono de la sección 1" />
             </button>
           )}
         </div>
