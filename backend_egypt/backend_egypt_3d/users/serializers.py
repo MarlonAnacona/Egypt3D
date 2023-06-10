@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from .models import UserProfile
+from .models import UserProfile, Avatar
 
 
 # class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -40,3 +40,21 @@ class UserProfileSerializer(serializers.ModelSerializer):
         user_profile.save()
         
         return user_profile
+    
+
+    def update(self, instance, validated_data):
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+        instance.set_password(validated_data.get('password', instance.password))
+        instance.profile_image = validated_data.get('profile_image', instance.profile_image)
+        instance.save()
+        return instance
+    
+
+
+
+class AvatarSerializer(serializers.ModelSerializer):    
+    
+    class Meta:
+        model = Avatar
+        fields = '__all__' 

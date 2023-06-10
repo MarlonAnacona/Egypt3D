@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions
-from .serializers import UserProfileSerializer
-from .models import UserProfile
+from .serializers import UserProfileSerializer, AvatarSerializer
+from .models import UserProfile, Avatar
 
 # Create your views here.
 
@@ -22,4 +22,10 @@ class UpdateUserProfileView(generics.UpdateAPIView):
     serializer_class = UserProfileSerializer
     permission_classes = [permissions.IsAuthenticated]
     lookup_field = 'pk'
+    
+
+class ListAvatarsView(generics.ListAPIView):
+    serializer_class = AvatarSerializer
+    permission_classes = [permissions.AllowAny]
+    queryset = Avatar.objects.all()
     

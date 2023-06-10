@@ -29,14 +29,19 @@ class CustomerManager(BaseUserManager):
 
 
 
-class UserProfile(AbstractUser, PermissionsMixin):
-    
+
+class Avatar(models.Model):
+    profile_image = models.ImageField(null=True, blank=True, upload_to='profile_pictures/')
+
+
+class UserProfile(AbstractUser, PermissionsMixin):    
     first_name = None
     last_name = None
     username = models.CharField(max_length=30, null=False, blank=False, unique=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=200, validators=[validators.MinLengthValidator(8)])
-    profile_image = models.ImageField(null=True, blank=True, upload_to='profile_pictures/')
+    # profile_image = models.ImageField(null=True, blank=True, upload_to='profile_pictures/')
+    profile_image = models.ForeignKey(Avatar, null=True, blank=False, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
@@ -44,3 +49,7 @@ class UserProfile(AbstractUser, PermissionsMixin):
 
     def __str__(self):
         return f'username: {self.username} \n user email: {self.email}'
+    
+
+
+
