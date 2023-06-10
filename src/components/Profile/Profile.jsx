@@ -3,7 +3,8 @@ import Modal from 'react-modal';
 import "./Profile.css";
 import { useEffect } from 'react';
 import jwt_decode from "jwt-decode";
-import { getUser } from '../../Services/users';
+import { getUser, updateUser } from '../../Services/users';
+import Swal from 'sweetalert2';
 
 export function Profile() {
   const data= jwt_decode(localStorage.getItem("token"))
@@ -69,9 +70,33 @@ export function Profile() {
     const handleSubmit = (event) => {
       event.preventDefault();
       // Aquí puedes enviar los datos actualizados al servidor
-      console.log('Avatar:', avatar);
-      console.log('Name:', name);
-      console.log('Email:', email);
+      const body = {
+        username: name,
+        email: email,
+        profile_image: avatar,
+        // puedes agregar más campos aquí si es necesario
+      };    
+    
+    updateUser(body,data.user_id).then((response)=>{
+      Swal.fire({
+        icon: "success",
+        title: "Operación exitosa",
+        text: "Haz cambiado tus datos correctamente",
+        confirmButtonText: "Continuar",
+        allowOutsideClick: false,
+        showCancelButton: false,
+      })
+    }).catch((err)=>{
+      console.log(err)
+      Swal.fire({
+        icon: "error",
+        title: "Opps algo salió mal",
+        text: "Ocurrió un error , intenta de nuevo",
+        confirmButtonText: "Continuar",
+        allowOutsideClick: false,
+        showCancelButton: false,
+      });
+    })
     };
   
     const handleChangePassword = () => {
@@ -87,7 +112,29 @@ export function Profile() {
     const handleSavePassword = () => {
       if (newPassword === confirmPassword) {
         // Realizar el cambio de contraseña
-        console.log('Contraseña cambiada');
+        const body={
+          password:newPassword
+        }
+        updateUser(body,data.user_id).then((response)=>{
+          Swal.fire({
+            icon: "success",
+            title: "Operación exitosa",
+            text: "Has cambiado de contraseña correctamente",
+            confirmButtonText: "Continuar",
+            allowOutsideClick: false,
+            showCancelButton: false,
+          })
+
+        }).catch((error)=>{
+          Swal.fire({
+            icon: "error",
+            title: "Opps algo salió mal",
+            text: "Ocurrió un error al cambiar de contraseña, intenta de nuevo",
+            confirmButtonText: "Continuar",
+            allowOutsideClick: false,
+            showCancelButton: false,
+          });
+        })
         setShowChangePassword(false);
         setNewPassword('');
         setConfirmPassword('');

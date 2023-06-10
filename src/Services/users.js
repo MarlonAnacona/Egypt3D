@@ -40,6 +40,7 @@ const getUser = async (id) => {
 const updateUser = async (body,id) => {
   const config = {
     headers: {
+      Authorization: 'Bearer '+localStorage.getItem('token'),
       accept: "*/*",
       "Content-Type": "application/json",
     },
