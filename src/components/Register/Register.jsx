@@ -1,29 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { addUser } from '../../Services/users';
 import Swal from 'sweetalert2';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Register.css';
-import { useContext } from 'react';
 import { LoginContext } from '../context/LoginContext';
 
-
 export function Register() {
-  useEffect(()=>{
-    setIsLogged(false)
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
-
-  
+  // Obtener la función setIsLogged del contexto LoginContext
   const { setIsLogged } = useContext(LoginContext);
+  
+  // Navegador utilizado para redireccionar después del registro exitoso
   let navigate = useNavigate();
 
+  // Estado inicial del formulario de registro
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
 
+  // Función para manejar los cambios en los campos del formulario
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -31,9 +27,11 @@ export function Register() {
     });
   };
 
+  // Función para manejar el envío del formulario de registro
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Llamar a la función addUser para crear un nuevo usuario en el servidor
     addUser(formData)
       .then((response) => {
         Swal.fire({
@@ -45,6 +43,7 @@ export function Register() {
           showCancelButton: false,
         }).then((result) => {
           if (result.isConfirmed) {
+            // Redireccionar al usuario a la página de inicio de sesión después del registro exitoso
             navigate("/login");
           }
         });

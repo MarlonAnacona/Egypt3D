@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import './estiloModulos.css'
+import './estiloModulos.css';
 import { Link } from 'react-router-dom';
 
 export function ModuloArquitectura() {
     const navigate = useNavigate();
 
+    // Manejar el clic en el botón de Quices
     const handleQuicesClick = () => {
         navigate('/quices'); // Redirige a la ruta '/quices'
     };
@@ -12,6 +13,7 @@ export function ModuloArquitectura() {
     return (
         <div className="Contenedor">
             <div className='izquierda'>
+                {/* Navegación hacia el módulo de Historia */}
                 <div className='navegacion'>
                     <Link to='/moduloHistoria'>
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
@@ -25,12 +27,14 @@ export function ModuloArquitectura() {
                 </button> {/* Redirecciona a '/quices' */}
             </div>
             <div className='derecha'>
+                {/* Navegación hacia el módulo de Mitología */}
                 <div className='navegacion'>
                     <Link to='/moduloMitologia'>
                         <img src="/images/navegarDer.png" alt="flecha" className="flecha_navegationDer" />
                     </Link>
                 </div>
                 <div className='titulo-modulo'>
+                    {/* Iframe con el modelo 3D de Sketchfab */}
                     <iframe
                         style={{
                             width: "500px",

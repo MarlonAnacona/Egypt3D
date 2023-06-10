@@ -1,6 +1,7 @@
 import Axios from "axios";
 import endpoints from "./services";
 
+// Función para agregar un nuevo usuario
 const addUser = async (body) => {
   const config = {
     headers: {
@@ -13,6 +14,7 @@ const addUser = async (body) => {
   return response.data;
 };
 
+// Función para iniciar sesión de usuario
 const loginUser = async (body) => {
   const config = {
     headers: {
@@ -25,30 +27,32 @@ const loginUser = async (body) => {
   return response.data;
 };
 
+// Función para obtener información de usuario por ID
 const getUser = async (id) => {
   const config = {
     headers: {
-      Authorization: 'Bearer '+localStorage.getItem('token'),
-
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
       accept: "*/*",
       "Content-Type": "application/json",
     },
   };
 
-  const response = await Axios.get(endpoints.users.getUser+id,  config);
+  const response = await Axios.get(endpoints.users.getUser + id, config);
   return response.data;
 };
 
-const updateUser = async (body,id) => {
+// Función para actualizar información de usuario por ID
+const updateUser = async (body, id) => {
   const config = {
     headers: {
-      Authorization: 'Bearer '+localStorage.getItem('token'),
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
       accept: "*/*",
       "Content-Type": "application/json",
     },
   };
 
-  const response = await Axios.patch(endpoints.users.updateUser+id, body, config);
+  const response = await Axios.patch(endpoints.users.updateUser + id, body, config);
   return response.data;
 };
-export { addUser, loginUser,getUser,updateUser };
+
+export { addUser, loginUser, getUser, updateUser };

@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 export function Profile() {
   const data= jwt_decode(localStorage.getItem("token"))
   useEffect(()=>{
+     // Obtener los datos del usuario al cargar el componente
     getUser(data.user_id).then((response)=>{
       setName(response.username)
       setEmail(response.email)
@@ -75,7 +76,8 @@ export function Profile() {
         email: email,
         // puedes agregar más campos aquí si es necesario
       };    
-    
+
+    // Actualizar los datos del usuario en el servidor
     updateUser(body,data.user_id).then((response)=>{
       Swal.fire({
         icon: "success",
@@ -114,6 +116,7 @@ export function Profile() {
         const body={
           password:newPassword
         }
+        // Cambiar la contraseña del usuario en el servidor
         updateUser(body,data.user_id).then((response)=>{
           Swal.fire({
             icon: "success",

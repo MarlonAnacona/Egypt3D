@@ -8,21 +8,26 @@ import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 
 export function Login() {
-  useEffect(()=>{
-    localStorage.removeItem("token")
-    setIsLogged(false)
+  // Efecto para limpiar el token y establecer el estado de inicio de sesión en falso al cargar el componente
+  useEffect(() => {
+    localStorage.removeItem("token");
+    setIsLogged(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-},[])
+  // Obtener el objeto navigate para la navegación
   let navigate = useNavigate();
 
+  // Obtener el estado setIsLogged del contexto LoginContext
   const { setIsLogged } = useContext(LoginContext);
 
+  // Estado para almacenar los datos del formulario de inicio de sesión
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  // Manejar los cambios en los campos del formulario
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -30,13 +35,17 @@ export function Login() {
     });
   };
 
+  // Manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Llamar a la función loginUser para autenticar al usuario
     loginUser(formData)
       .then((response) => {
-        localStorage.setItem("token",response.access)
+        // Almacenar el token de acceso en el localStorage
+        localStorage.setItem("token", response.access);
 
+        // Mostrar un mensaje de éxito utilizando SweetAlert2
         Swal.fire({
           icon: "success",
           title: "Operación exitosa",
@@ -45,14 +54,16 @@ export function Login() {
           allowOutsideClick: false,
           showCancelButton: false,
         }).then((result) => {
+          // Si se confirma el mensaje, establecer el estado de inicio de sesión en verdadero y redirigir al usuario
           if (result.isConfirmed) {
-            setIsLogged(true)
-            navigate("/modules")
+            setIsLogged(true);
+            navigate("/modules");
           }
         });
       })
       .catch((err) => {
-        console.log(err)
+        // En caso de error, mostrar un mensaje de error utilizando SweetAlert2
+        console.log(err);
         Swal.fire({
           icon: "error",
           title: "Opps algo salió mal",
@@ -63,26 +74,44 @@ export function Login() {
         });
       });
   };
+
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
+        {/* Título del formulario */}
         <h2 className="login-title">Iniciar Sesión</h2>
+        {/* Texto de bienvenida */}
         <h4 className="login-text">Un gusto tenerte de vuelta!</h4>
 
-      <div className="form-group ">
-        <input className='textfield'type="text" id="email" placeholder='Correo electronico '
-        value={formData.email}
-        onChange={handleChange}
-        />
-      </div>
-      <div className="form-group letter">
-        <input className='textfield' type="password" id="password" placeholder='Contraseña' 
-        value={formData.password}
-        onChange={handleChange}
-        />
-      </div>
-      <button type="submit" className="login-button">Ingresar</button>
-    </form>
-  </div>
-    )
+        {/* Campo de entrada para el correo electrónico */}
+        <div className="form-group">
+          <input
+            className="textfield"
+            type="text"
+            id="email"
+            placeholder="Correo electronico"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Campo de entrada para la contraseña */}
+        <div className="form-group">
+          <input
+            className="textfield"
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Botón para enviar el formulario */}
+        <button type="submit" className="login-button">
+          Ingresar
+        </button>
+      </form>
+    </div>
+  );
 }

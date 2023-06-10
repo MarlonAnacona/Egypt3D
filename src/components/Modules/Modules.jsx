@@ -1,18 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import {  useState } from "react";
+import { useState } from "react";
 import "./Modules.css";
 import ReactAudioPlayer from 'react-audio-player';
-import song from '../audio/song.mp3'
-
+import song from '../audio/song.mp3';
 
 export function Modules() {
-
   const navigate = useNavigate();
 
-
-  
+  // Estado para almacenar la tarjeta activa
   const [activeCard, setActiveCard] = useState(null);
 
+  // Manejar el clic en una tarjeta
   const handleClick = (moduleName) => {
     const moduleLink = `/modulo${moduleName}`;
     navigate(moduleLink);
@@ -20,7 +18,8 @@ export function Modules() {
 
   return (
     <div className="card-container">
-          <ReactAudioPlayer
+      {/* Reproductor de audio */}
+      <ReactAudioPlayer
         src={song}
         controls
         autoPlay
@@ -34,6 +33,8 @@ export function Modules() {
           zIndex: '9999',
         }}
       />
+
+      {/* Tarjeta de Historia */}
       <div
         className={`card ${activeCard === "Historia" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Historia")}
@@ -56,6 +57,8 @@ export function Modules() {
           </div>
         </div>
       </div>
+
+      {/* Tarjeta de Arquitectura */}
       <div
         className={`card ${activeCard === "Arquitectura" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Arquitectura")}
@@ -78,6 +81,8 @@ export function Modules() {
           </div>
         </div>
       </div>
+
+      {/* Tarjeta de Mitologia */}
       <div
         className={`card ${activeCard === "Mitologia" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Mitologia")}
@@ -95,11 +100,13 @@ export function Modules() {
             <p>
               Embárcate en un viaje a través de los misterios de la mitología
               egipcia. Descubre un mundo fascinante lleno de dioses y diosas
-              poderosos, cada uno con su propia historia y dominio.{" "}
+              poderosos, cada uno con su propia historia y dominio.
             </p>
           </div>
         </div>
       </div>
+
+      {/* Tarjeta de Arte */}
       <div
         className={`card ${activeCard === "Arte" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Arte")}
@@ -123,6 +130,8 @@ export function Modules() {
           </div>
         </div>
       </div>
+
+      {/* Tarjeta de Costumbres */}
       <div
         className={`card ${activeCard === "Costumbres" ? "active" : ""}`}
         onMouseEnter={() => setActiveCard("Costumbres")}
