@@ -14,5 +14,6 @@ urlpatterns = [
     path('profile/<int:pk>', views.RetriveUserProfileInfoView.as_view(), name='retrive user profile info'),
     path('profile/update/<int:pk>', views.UpdateUserProfileView.as_view(), name='update user profile info'),
     path('avatar/', views.ListAvatarsView.as_view(), name='get all avatars'),
+    path('avatar/<int:pk>', views.RetriveAvatarView.as_view(), name='get avatar with id'),
     
 ]

@@ -29,3 +29,8 @@ class ListAvatarsView(generics.ListAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = Avatar.objects.all()
     
+class RetriveAvatarView(generics.RetrieveAPIView):
+    serializer_class = AvatarSerializer
+    permission_classes = [permissions.AllowAny]
+    queryset = Avatar.objects.all()
+    lookup_field = 'pk'
