@@ -1,4 +1,4 @@
-const URL = "https://marlonanacona.pythonanywhere.com";
+const URL = "https://egypt-backend.onrender.com";
 
 const endpoints = {
   users: {

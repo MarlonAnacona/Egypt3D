@@ -28,6 +28,8 @@ const loginUser = async (body) => {
 const getUser = async (id) => {
   const config = {
     headers: {
+      Authorization: 'Bearer '+localStorage.getItem('token'),
+
       accept: "*/*",
       "Content-Type": "application/json",
     },

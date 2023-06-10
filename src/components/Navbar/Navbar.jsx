@@ -19,8 +19,10 @@ const Navbar = () => {
     <div className={`nav-items ${isOpen && "open"}`}>
       {isLogged && <a href="/profile">Perfil</a>}
       {isLogged && <a href="/modules">Modulos</a>}
+      {!isLogged && <a href="/">Inicio</a>}
       {!isLogged && <a href="/register">Registrate</a>}
       {!isLogged && <a href="/login">Inicia Sesion</a>}
+      
       {isLogged && <a href="/" onClick={handleLogout}>Cerrar Sesión</a>}
     </div>
     <div

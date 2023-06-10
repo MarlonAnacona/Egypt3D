@@ -73,7 +73,6 @@ export function Profile() {
       const body = {
         username: name,
         email: email,
-        profile_image: avatar,
         // puedes agregar más campos aquí si es necesario
       };    
     
@@ -154,7 +153,30 @@ export function Profile() {
 
       const handleConfirmAvatarSelection = () => {
         // Realiza las acciones necesarias al confirmar la selección del avatar
+        const body={
+          profile_image:avatar
+        }
         setShowAvatarSelector(false);
+        updateUser(body,data.user_id).then((response)=>{
+          Swal.fire({
+            icon: "success",
+            title: "Operación exitosa",
+            text: "Haz cambiado tus datos correctamente",
+            confirmButtonText: "Continuar",
+            allowOutsideClick: false,
+            showCancelButton: false,
+          })
+        }).catch((err)=>{
+          console.log(err)
+          Swal.fire({
+            icon: "error",
+            title: "Opps algo salió mal",
+            text: "Ocurrió un error , intenta de nuevo",
+            confirmButtonText: "Continuar",
+            allowOutsideClick: false,
+            showCancelButton: false,
+          });
+        })
       };
       
     return (

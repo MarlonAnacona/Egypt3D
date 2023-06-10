@@ -19,7 +19,7 @@ export function Login() {
   const { setIsLogged } = useContext(LoginContext);
 
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -70,8 +70,8 @@ export function Login() {
         <h4 className="login-text">Un gusto tenerte de vuelta!</h4>
 
       <div className="form-group ">
-        <input className='textfield'type="text" id="username" placeholder='Correo Electronico'
-        value={formData.username}
+        <input className='textfield'type="text" id="email" placeholder='Correo electronico '
+        value={formData.email}
         onChange={handleChange}
         />
       </div>
