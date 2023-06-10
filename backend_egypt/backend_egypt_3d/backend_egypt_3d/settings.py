@@ -31,7 +31,7 @@ SECRET_KEY =  os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', '0.0.0.0:4200','egypt-backend.onrender.com','*']
+ALLOWED_HOSTS = ['0.0.0.0', '0.0.0.0:4200','https://egypt-backend.onrender.com','*']
 
 
 # Application definition
