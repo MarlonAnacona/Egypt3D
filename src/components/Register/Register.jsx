@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { addUser } from '../../Services/users';
 import Swal from 'sweetalert2';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Register.css';
 import { useContext } from 'react';
 import { LoginContext } from '../context/LoginContext';
 
-
 export function Register() {
-  useEffect(()=>{
-    setIsLogged(false)
+  // Configurar el estado inicial para el inicio de sesión
+  useEffect(() => {
+    setIsLogged(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  const { setIsLogged } = useContext(LoginContext); // Obtener el contexto de inicio de sesión
+  let navigate = useNavigate(); // Obtener la función de navegación proporcionada por react-router-dom
 
-  
-  const { setIsLogged } = useContext(LoginContext);
-  let navigate = useNavigate();
-
+  // Configurar el estado y los cambios de formulario
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -31,11 +30,13 @@ export function Register() {
     });
   };
 
+  // Manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     addUser(formData)
       .then((response) => {
+        // Mostrar una alerta de éxito cuando el usuario se registre correctamente
         Swal.fire({
           icon: "success",
           title: "Operación exitosa",
@@ -45,11 +46,12 @@ export function Register() {
           showCancelButton: false,
         }).then((result) => {
           if (result.isConfirmed) {
-            navigate("/login");
+            navigate("/login"); // Navegar a la página de inicio de sesión después del registro exitoso
           }
         });
       })
       .catch((err) => {
+        // Mostrar una alerta de error si ocurre algún problema durante el registro
         Swal.fire({
           icon: "error",
           title: "Opps algo salió mal",
