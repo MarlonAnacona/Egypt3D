@@ -1,3 +1,56 @@
+
+.izquierda {
+    
+    width: 50%;
+    margin: auto;
+    height: 100vh;
+}
+
+.derecha {
+    background-image: url(/public/images/register.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 50%;
+    margin: auto;
+    
+}
+
+#pantalla-dividida{
+    display: flex;
+    
+}
+
+
+.titulo{
+    color: white;
+    font-size: 100px;
+    width: 50%;
+    margin: auto;
+    margin-top: 350px;
+    margin-bottom: 20px;
+
+}
+
+.subtitulo{
+    color: white;
+    font-size: 20px;
+    width: 50%;
+    margin: auto;
+}
+
+.logo{
+    margin-left: -15px;
+    width: 100%;
+    margin-top: 250px;
+    margin-bottom: -370px;
+}
+
+.logo img{
+    width: 15%;
+}
+
 .register-form {
 
     width: 545px;

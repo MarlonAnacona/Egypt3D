@@ -27,6 +27,13 @@ export function Register() {
     });
   };
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   // Función para manejar el envío del formulario de registro
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,46 +68,57 @@ export function Register() {
   };
 
   return (
-    <div className="register-container">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2 className="register-title">Registro</h2>
-        <h4 className="register-text">
-          Registrate gratis y comienza tu viaje!
-        </h4>
-        <div className="form-group">
-          <input
-            className="textfield"
-            type="text"
-            id="username"
-            placeholder="Nombre"
-            value={formData.username}
-            onChange={handleChange}
-          />
+    <section id="pantalla-dividida">
+        <div className="izquierda">
+          <div className="register-container">
+            <form className="register-form" onSubmit={handleSubmit}>
+              <h2 className="register-title">Registro</h2>
+              <h4 className="register-text">
+                Registrate gratis y comienza tu viaje!
+              </h4>
+              <div className="form-group">
+                <input
+                  className="textfield"
+                  type="text"
+                  id="username"
+                  placeholder="Nombre"
+                  value={formData.username}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  className="textfield"
+                  type="text"
+                  id="email"
+                  placeholder="Correo Electrónico"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  className="textfield"
+                  type="password"
+                  id="password"
+                  placeholder="Contraseña"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+              </div>
+              <button type="submit" className="register-button">
+                Registrarse
+              </button>
+            </form>
+          </div>
         </div>
-        <div className="form-group">
-          <input
-            className="textfield"
-            type="text"
-            id="email"
-            placeholder="Correo Electrónico"
-            value={formData.email}
-            onChange={handleChange}
-          />
+        <div className="derecha">
+        <div class="logo">
+                <img src="/images/logo.png"/>
+            </div>
+            <h3 className='titulo'>Egypt 3D</h3>
+            <h4 className='subtitulo'>REGISTRATE CON TU NOMBRE, CORREO Y CONTRASEÑA</h4>
         </div>
-        <div className="form-group">
-          <input
-            className="textfield"
-            type="password"
-            id="password"
-            placeholder="Contraseña"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit" className="register-button">
-          Registrarse
-        </button>
-      </form>
-    </div>
+    </section>
   );
 }

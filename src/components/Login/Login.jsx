@@ -35,6 +35,13 @@ export function Login() {
     });
   };
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   // Manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,42 +83,55 @@ export function Login() {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        {/* Título del formulario */}
-        <h2 className="login-title">Iniciar Sesión</h2>
-        {/* Texto de bienvenida */}
-        <h4 className="login-text">Un gusto tenerte de vuelta!</h4>
+    <div className="fondo">
+    <section id="pantalla-dividida">
+        <div className="izquierda-login">
+          <div className="login-container">
+            <form className="login-form" onSubmit={handleSubmit}>
+              {/* Título del formulario */}
+              <h2 className="login-title">Iniciar Sesión</h2>
+              {/* Texto de bienvenida */}
+              <h4 className="login-text">Un gusto tenerte de vuelta!</h4>
 
-        {/* Campo de entrada para el correo electrónico */}
-        <div className="form-group">
-          <input
-            className="textfield"
-            type="text"
-            id="email"
-            placeholder="Correo electronico"
-            value={formData.email}
-            onChange={handleChange}
-          />
+              {/* Campo de entrada para el correo electrónico */}
+              <div className="form-group">
+                <input
+                  className="textfield"
+                  type="text"
+                  id="email"
+                  placeholder="Correo electronico"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Campo de entrada para la contraseña */}
+              <div className="form-group">
+                <input
+                  className="textfield"
+                  type="password"
+                  id="password"
+                  placeholder="Contraseña"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Botón para enviar el formulario */}
+              <button type="submit" className="login-button">
+                Ingresar
+              </button>
+            </form>
+          </div>
         </div>
-
-        {/* Campo de entrada para la contraseña */}
-        <div className="form-group">
-          <input
-            className="textfield"
-            type="password"
-            id="password"
-            placeholder="Contraseña"
-            value={formData.password}
-            onChange={handleChange}
-          />
+        <div className="derecha-login">
+            <div class="logo">
+               <img src="/images/logo.png"/>
+            </div>
+            <h3 className='titulo'>Egypt 3D</h3>
+            <h4 className='subtitulo'>INGRESA CON TU CORREO Y CONTRASEÑA</h4>
         </div>
-
-        {/* Botón para enviar el formulario */}
-        <button type="submit" className="login-button">
-          Ingresar
-        </button>
-      </form>
+    </section>
     </div>
   );
 }
