@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "./Navbar.css";
+import styles from './Navbar.module.css';
 import { LoginContext } from "../context/LoginContext";
 
 const Navbar = () => {
@@ -13,16 +13,16 @@ const Navbar = () => {
   };
 
   return (
-    <div className="Navbar">
-      <img src="/images/logo.png" alt="Logo" className="nav-logo" />
-      <span className="nav-title">Egypt 3D</span>
-      <div className={`nav-items ${isOpen && "open"}`}>
+    <div className={styles.Navbar}>
+      <img src="/images/logo.png" alt="Logo" className={styles['nav-logo']} />
+      <span className={styles['nav-title']}>Egypt 3D</span>
+      <div className={`${styles['nav-items']} ${isOpen && styles.open}`}>
         {/* Mostrar elementos del menú según el estado de inicio de sesión */}
         {isLogged && <a href="/profile">Perfil</a>}
         {isLogged && <a href="/modules">Modulos</a>}
         {!isLogged && <a href="/">Inicio</a>}
         {!isLogged && <a href="/register">Registrate</a>}
-        {!isLogged && <a href="/login">Inicia Sesion</a>}
+        {!isLogged && <a href="/login">Inicia Sesión</a>}
         {isLogged && (
           <a href="/" onClick={handleLogout}>
             Cerrar Sesión
@@ -30,14 +30,14 @@ const Navbar = () => {
         )}
       </div>
       <div
-        className={`nav-toggle ${isOpen && "open"}`}
+        className={`${styles['nav-toggle']} ${isOpen && styles.open}`}
         onClick={() => setIsOpen(!isOpen)}
         data-testid="nav-toggle"
       >
-        <div className="bar"></div>
+        <div className={styles.bar}></div>
       </div>
     </div>
   );
-};
+}
 
 export default Navbar;

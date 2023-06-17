@@ -140,6 +140,7 @@ input {
 }
 .textfield {
   background-color: #624b7900;
+  color: #fff;
   border-color: #ccc;
   border-radius: 10px;
   width: 250%;

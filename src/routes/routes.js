@@ -17,6 +17,8 @@ import {
   import { Profile } from "../components/Profile/Profile";
   import { LoginContext } from "../components/context/LoginContext";
   import { useContext } from "react";
+  import { About } from "../components/About/About";
+
   
   export function MyRoutes() {
     const { isLogged } = useContext(LoginContext);
@@ -33,6 +35,8 @@ import {
             <Route path="/moduloCostumbres" element={<ModuloCostumbres />} />
             <Route path="/quices" element={<Quiz />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About />} />
 
           </Routes>
         ) : (
@@ -41,6 +45,7 @@ import {
            <Route path="/" element={<Home />} exact />
             <Route path="/login" element={<Login />}exact/>
             <Route path="/register" element={<Register />} exact/>
+            <Route path="/about" element={<About />} exact/>
           </Routes>
         )}
       </BrowserRouter>

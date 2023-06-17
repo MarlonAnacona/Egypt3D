@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import './Home.css';
+import styles from './Home.module.css';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { LoginContext } from '../context/LoginContext';
+import { Footer } from '../Footer/Footer'; 
 
 export function Home() {
   // Eliminar el token del almacenamiento local y establecer el estado de inicio de sesión en falso al cargar el componente
@@ -21,17 +22,16 @@ export function Home() {
   };
 
   return (
-    <div className="home_page">
+    <div className={styles['home_page']}>
       {currentSection === 1 && (
-        <div className="bienvenida">
-          {/* Botones para cambiar a las secciones */}
+        <div className={styles['bienvenida']}>
           {currentSection !== 1 && (
-            <button className="circle_button1" onClick={() => handleSectionChange(1)}>
+            <button className={styles['circle_button1']} onClick={() => handleSectionChange(1)}>
               <img src="/images/flecha-correcta.png" alt="Icono de la sección 1" />
             </button>
           )}
           {currentSection !== 2 && (
-            <button className="circle_button1" onClick={() => handleSectionChange(2)}>
+            <button className={styles['circle_button1']} onClick={() => handleSectionChange(2)}>
               <img src="/images/flecha-correcta.png" alt="Icono de la sección 1" />
             </button>
           )}
@@ -39,22 +39,22 @@ export function Home() {
       )}
 
       {currentSection === 2 && (
-        <div className="informacion">
-          {/* Botones para cambiar a las secciones */}
+        <div className={styles['informacion']}>
           {currentSection !== 1 && (
-            <button className="circle_button" onClick={() => handleSectionChange(1)}>
+            <button className={styles['circle_button']} onClick={() => handleSectionChange(1)}>
               <img src="/images/flecha-correcta1.png" alt="Icono de la sección 1" />
             </button>
           )}
           {currentSection !== 2 && (
-            <button className="circle_button" onClick={() => handleSectionChange(2)}>
+            <button className={styles['circle_button']} onClick={() => handleSectionChange(2)}>
               <img src="/images/flecha-correcta1.png" alt="Icono de la sección 1" />
             </button>
           )}
-          <div className='page_notices'></div>
-          <div className='page_foro'></div>
+          <div className={styles['page_notices']}></div>
+          <div className={styles['page_foro']}></div>
         </div>
       )}
+      <Footer visible={true} />
     </div>
   );
 }

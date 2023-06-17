@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { addUser } from '../../Services/users';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import './Register.css';
+import styles from './Register.module.css';
 
 export function Register() {
   // Obtener la función setIsLogged del contexto LoginContext
@@ -66,58 +66,57 @@ export function Register() {
   };
 
   return (
-    <section id="pantalla-dividida">
-        <div className="izquierda">
-          <div className="register-container">
-            <form className="register-form" onSubmit={handleSubmit}>
-              <h2 className="register-title">Registro</h2>
-              <h4 className="register-text">
-                Registrate gratis y comienza tu viaje!
-              </h4>
-              <div className="form-group">
-                <input
-                  className="textfield"
-                  type="text"
-                  id="username"
-                  placeholder="Nombre"
-                  value={formData.username}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  className="textfield"
-                  type="text"
-                  id="email"
-                  placeholder="Correo Electrónico"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  className="textfield"
-                  type="password"
-                  id="password"
-                  placeholder="Contraseña"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-              </div>
-              <button type="submit" className="register-button">
-                Registrarse
-              </button>
-            </form>
-          </div>
-        </div>
-        <div className="derecha">
-        <div class="logo">
-                <img src="/images/logo.png" alt=''/>
-                <img src="/images/logo.png" alt="No disponible"/>
+    <section id={styles['pantalla-dividida']}>
+      <div className={styles.izquierda}>
+        <div className={styles['register-container']}>
+          <form className={styles['register-form']} onSubmit={handleSubmit}>
+            <h2 className={styles['register-title']}>Registro</h2>
+            <h4 className={styles['register-text']}>
+              Regístrate gratis y comienza tu viaje!
+            </h4>
+            <div className={styles['form-group']}>
+              <input
+                className={styles.textfield}
+                type="text"
+                id="username"
+                placeholder="Nombre"
+                value={formData.username}
+                onChange={handleChange}
+              />
             </div>
-            <h3 className='titulo'>Egypt 3D</h3>
-            <h4 className='subtitulo'>REGISTRATE CON TU NOMBRE, CORREO Y CONTRASEÑA</h4>
+            <div className={styles['form-group']}>
+              <input
+                className={styles.textfield}
+                type="text"
+                id="email"
+                placeholder="Correo Electrónico"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles['form-group']}>
+              <input
+                className={styles.textfield}
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
+            <button type="submit" className={styles['register-button']}>
+              Registrarse
+            </button>
+          </form>
         </div>
+      </div>
+      <div className={styles.derecha}>
+        <div className={styles.logo}>
+          <img src="/images/logo.png" alt=''/>
+        </div>
+        <h3 className={styles.titulo}>Egypt 3D</h3>
+        <h4 className={styles.subtitulo}>REGISTRATE CON TU NOMBRE, CORREO Y CONTRASEÑA</h4>
+      </div>
     </section>
   );
 }

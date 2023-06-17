@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import "./Login.css";
+import styles from './Login.module.css';
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { loginUser } from "../../Services/users";
 import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
+import { Footer } from '../Footer/Footer'; 
 
 export function Login() {
   // Efecto para limpiar el token y establecer el estado de inicio de sesión en falso al cargar el componente
@@ -83,32 +84,32 @@ export function Login() {
   };
 
   return (
-    <div className="fondo">
-    <section id="pantalla-dividida">
-        <div className="izquierda-login">
-          <div className="login-container">
-            <form className="login-form" onSubmit={handleSubmit}>
+    <div className={styles['fondo']}>
+      <section id="pantalla-dividida" className={styles['pantalla-dividida']}>
+        <div className={styles['izquierda-login']}>
+          <div className={styles['login-container']}>
+            <form className={styles['login-form']} onSubmit={handleSubmit}>
               {/* Título del formulario */}
-              <h2 className="login-title">Iniciar Sesión</h2>
+              <h2 className={styles['login-title']}>Iniciar Sesión</h2>
               {/* Texto de bienvenida */}
-              <h4 className="login-text">Un gusto tenerte de vuelta!</h4>
+              <h4 className={styles['login-text']}>Un gusto tenerte de vuelta!</h4>
 
               {/* Campo de entrada para el correo electrónico */}
-              <div className="form-group">
+              <div className={styles['form-group']}>
                 <input
-                  className="textfield"
+                  className={styles['textfield']}
                   type="text"
                   id="email"
-                  placeholder="Correo electronico"
+                  placeholder="Correo electrónico"
                   value={formData.email}
                   onChange={handleChange}
                 />
               </div>
 
               {/* Campo de entrada para la contraseña */}
-              <div className="form-group">
+              <div className={styles['form-group']}>
                 <input
-                  className="textfield"
+                  className={styles['textfield']}
                   type="password"
                   id="password"
                   placeholder="Contraseña"
@@ -118,20 +119,21 @@ export function Login() {
               </div>
 
               {/* Botón para enviar el formulario */}
-              <button type="submit" className="login-button">
+              <button type="submit" className={styles['login-button']}>
                 Ingresar
               </button>
             </form>
           </div>
         </div>
-        <div className="derecha-login">
-            <div class="logo">
-               <img src="/images/logo.png" alt="No disponible" />
-            </div>
-            <h3 className='titulo'>Egypt 3D</h3>
-            <h4 className='subtitulo'>INGRESA CON TU CORREO Y CONTRASEÑA</h4>
+        <div className={styles['derecha-login']}>
+          <div className={styles['logo']}>
+            <img src="/images/logo.png" alt="No disponible" />
+          </div>
+          <h3 className={styles['titulo']}>Egypt 3D</h3>
+          <h4 className={styles['subtitulo']}>INGRESA CON TU CORREO Y CONTRASEÑA</h4>
         </div>
-    </section>
+      </section>
+      <Footer visible={false} />
     </div>
   );
 }
