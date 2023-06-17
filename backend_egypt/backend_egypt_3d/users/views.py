@@ -45,7 +45,7 @@ class ChangePasswordView(generics.GenericAPIView):
 
 class ChangeProfilePictureCustomImageView(generics.GenericAPIView):
     serializer_class = ProfilePictureSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated   ]
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
