@@ -20,7 +20,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'id': {'read_only': True},
             'password': {'write_only': True},
-            'profile_image': {'read_only': True}
+            # 'profile_image': {'read_only': True}
              }
                 
     
