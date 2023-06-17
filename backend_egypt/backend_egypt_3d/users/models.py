@@ -33,7 +33,7 @@ class CustomerManager(BaseUserManager):
 class ProfilePicture(models.Model):
     profile_image = models.ImageField(null=True, blank=True, upload_to='profile_pictures/')
     is_default_image = models.BooleanField(null=False, blank=False, default=False)
-
+    
 
 class UserProfile(AbstractUser, PermissionsMixin):    
     first_name = None

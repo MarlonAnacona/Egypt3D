@@ -29,12 +29,6 @@ class ListDefaultProfilePictures(generics.ListAPIView):
     serializer_class = ProfilePictureSerializer
     permission_classes = [permissions.AllowAny]
     queryset = ProfilePicture.objects.filter(is_default_image=True)
-    
-# class RetriveProfilePictureView(generics.RetrieveAPIView):
-#     serializer_class = AvatarSerializer
-#     permission_classes = [permissions.AllowAny]
-#     queryset = ProfilePicture.objects.all()
-#     lookup_field = 'pk'
 
 
 class ChangePasswordView(generics.GenericAPIView):
@@ -47,3 +41,21 @@ class ChangePasswordView(generics.GenericAPIView):
         serializer.save()
         
         return Response({'detail': 'Password changed successfully.'}, status=status.HTTP_200_OK)
+
+
+class ChangeProfilePictureCustomImageView(generics.GenericAPIView):
+    serializer_class = ProfilePictureSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        
+        user = request.user
+        profile_image = serializer.validated_data.get('profile_image')
+        profile_pic = ProfilePicture.objects.create(profile_image=profile_image)
+        
+        user.profile_image = profile_pic
+        user.save()
+        
+        return Response({'detail': 'profile image changed successfully.'}, status=status.HTTP_200_OK)

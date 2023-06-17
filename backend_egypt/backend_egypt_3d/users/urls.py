@@ -14,7 +14,8 @@ urlpatterns = [
     path('profile/<int:pk>', views.RetriveUserProfileInfoView.as_view(), name='retrive user profile info'),
     path('profile/update/<int:pk>', views.UpdateUserProfileView.as_view(), name='update user profile info'),
     path('default-pictures/', views.ListDefaultProfilePictures.as_view(), name='get all default profile pictures'),
-    # path('avatar/<int:pk>', views.RetriveAvatarView.as_view(), name='get avatar with id'),
+    #path('avatar/<int:pk>', views.RetriveAvatarView.as_view(), name='get avatar with id'),
 
     path('change-password/', views.ChangePasswordView.as_view(), name='change current password'),
+    path('custom-profile-picture/', views.ChangeProfilePictureCustomImageView.as_view(), name='change profile pic to custom img'),
 ]
