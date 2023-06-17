@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import "./Profile.css";
 import { useEffect } from 'react';
 import jwt_decode from "jwt-decode";
-import { getUser, updateUser } from '../../Services/users';
+import { getUser, updateUser,getImagesDefault, updatePassword, updateImage } from '../../Services/users';
 import Swal from 'sweetalert2';
 
 export function Profile() {
@@ -13,45 +13,84 @@ export function Profile() {
     getUser(data.user_id).then((response)=>{
       setName(response.username)
       setEmail(response.email)
+      setSelectedImage(response.profile_image)
       if(response.profile_image){
         setName(response.username)
       }
       
     })
 
+    getImagesDefault().then((response)=>{
+      const profileImages = response.map(item => item.profile_image);
+      setAvatars(profileImages);
+
+})
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
- 
 
-    const [avatar, setAvatar] = useState('/images/perfil.png');
+const [selectedImage, setSelectedImage] = useState("/images/perfil.png");
+
+
+const handleImageChange = (e) => {
+  if (e.target.files && e.target.files[0]) {
+      let reader = new FileReader();
+      let file = e.target.files[0];
+
+      reader.onload = (e) => {
+          setSelectedImage(e.target.result); // actualizamos la imagen seleccionada con la data en base64
+      };
+
+      reader.readAsDataURL(e.target.files[0]); // convertimos la imagen a una string en base64
+      let formData = new FormData();
+      console.log(file)
+
+      if (file) {
+        // Si se seleccionó un archivo, lo incluimos en el cuerpo de la petición
+        formData.append('profile_image', file);
+        updateImage(formData).then((response)=>{
+
+          Swal.fire({
+            icon: "success",
+            title: "Operación exitosa",
+            text: "Haz cambiado tus datos correctamente",
+            confirmButtonText: "Continuar",
+            allowOutsideClick: false,
+            showCancelButton: false,
+          })
+        }).catch((err)=>{
+          console.log(err)
+          Swal.fire({
+            icon: "error",
+            title: "Opps algo salió mal",
+            text: "Ocurrió un error , intenta de nuevo",
+            confirmButtonText: "Continuar",
+            allowOutsideClick: false,
+            showCancelButton: false,
+          });
+        })
+      } else {
+        // Si no se seleccionó un archivo, asumimos que se seleccionó un avatar y lo incluimos en el cuerpo de la petición
+        formData.append('profile_image', selectedImage);
+      }
+  }
+};
+
     const [name, setName] = useState(data.username);
     const [email, setEmail] = useState(data.email);
     const [showChangePassword, setShowChangePassword] = useState(false);
     const [newPassword, setNewPassword] = useState('');
+    const [oldPassword, setOldPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showAvatarSelector, setShowAvatarSelector] = useState(false);
+    const [avatars, setAvatars]=useState(null)
   
-  
-    const avatars = [
-        '/images/anubis.png',
-        '/images/momia.png',
-        '/images/jeroglifico.png',
-        '/images/faraon.png',
-        '/images/sarcofago.png',
-        '/images/escarabajo.png',
-        '/images/gato.png',
-        '/images/piramides.png',
-        '/images/esfinge.png',
-        '/images/cleopatra.png',
-        '/images/bastones.png',
-        '/images/ra.png',
-        // Agrega más rutas de imágenes de avatar según tus necesidades
-      ];
-  
-    const handleAvatarSelection = (selectedAvatar) => {
-        setAvatar(selectedAvatar);
-    };
-  
+ 
+      const handleAvatarSelection = (selectedAvatar) => {
+        setSelectedImage(selectedAvatar);
+
+      };
+      
     const handleNameChange = (event) => {
       setName(event.target.value);
     };
@@ -64,6 +103,11 @@ export function Profile() {
       setNewPassword(event.target.value);
     };
   
+
+    const handleOldPasswordChange = (event) => {
+      setOldPassword(event.target.value);
+    };
+
     const handleConfirmPasswordChange = (event) => {
       setConfirmPassword(event.target.value);
     };
@@ -76,6 +120,8 @@ export function Profile() {
         email: email,
         // puedes agregar más campos aquí si es necesario
       };    
+      
+    
 
     // Actualizar los datos del usuario en el servidor
     updateUser(body,data.user_id).then((response)=>{
@@ -106,6 +152,7 @@ export function Profile() {
   
     const handleCloseChangePassword = () => {
       setShowChangePassword(false);
+      setOldPassword('');
       setNewPassword('');
       setConfirmPassword('');
     };
@@ -114,10 +161,11 @@ export function Profile() {
       if (newPassword === confirmPassword) {
         // Realizar el cambio de contraseña
         const body={
-          password:newPassword
+          current_password:oldPassword,
+          new_password:newPassword
         }
         // Cambiar la contraseña del usuario en el servidor
-        updateUser(body,data.user_id).then((response)=>{
+        updatePassword(body).then((response)=>{
           Swal.fire({
             icon: "success",
             title: "Operación exitosa",
@@ -157,8 +205,8 @@ export function Profile() {
       const handleConfirmAvatarSelection = () => {
         // Realiza las acciones necesarias al confirmar la selección del avatar
         const body={
-          profile_image:avatar
-        }
+          profile_image:selectedImage
+                }
         setShowAvatarSelector(false);
         updateUser(body,data.user_id).then((response)=>{
           Swal.fire({
@@ -184,16 +232,28 @@ export function Profile() {
       
     return (
       <div className="container">
-        <div className="profile-card">
+      <div className="profile-card">
           <h1>Perfil</h1>
-          <div className="avatar-preview">
-            <img src={avatar} alt="Avatar Preview" />
-          </div>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className="texto" htmlFor="avatar">Avatar:</label>
-              <button type="button" onClick={handleOpenAvatarSelector}>Seleccionar Avatar</button>
-            </div>
+              <div className="form-group">
+                  <label className="texto" htmlFor="avatar">Avatar:</label>
+                  <div className="avatar-preview">
+                  <img src={selectedImage} alt="Avatar" />
+                  </div>
+                  <button type="button" onClick={handleOpenAvatarSelector}>Seleccionar Avatar</button>
+                  <input 
+                      type="file" 
+                      id="imageFile" 
+                      onChange={handleImageChange} 
+                      style={{display: 'none'}}
+                  />
+                  <button 
+                      type="button" 
+                      onClick={() => document.getElementById("imageFile").click()}
+                  >
+                      Seleccionar imagen del dispositivo
+                  </button>
+              </div>
             <div className="form-group">
               <label className="texto" htmlFor="name">Nombre:</label>
               <input
@@ -243,7 +303,7 @@ export function Profile() {
                 <div
                     key={avatarOption}
                     className={`avatar-option ${
-                    avatar === avatarOption ? "selected" : ""
+                    selectedImage === avatarOption ? "selected" : ""
                     }`}
                     onClick={() => handleAvatarSelection(avatarOption)}
                 >
@@ -268,6 +328,15 @@ export function Profile() {
             <span className="modal-close-icon">&#10005;</span>
             </button>
             <h2 className='modal-title'>Cambiar Contraseña</h2>
+            <div className="form-group">
+            <label htmlFor="new-password">Antigua Contraseña:</label>
+            <input
+                type="password"
+                id="old-password"
+                value={oldPassword}
+                onChange={handleOldPasswordChange}
+            />
+            </div>
             <div className="form-group">
             <label htmlFor="new-password">Nueva Contraseña:</label>
             <input

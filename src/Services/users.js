@@ -55,4 +55,50 @@ const updateUser = async (body, id) => {
   return response.data;
 };
 
-export { addUser, loginUser, getUser, updateUser };
+
+
+// Función para actualizar información de usuario por ID
+const updateImage = async (body) => {
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      accept: "*/*",
+      'Content-Type': 'multipart/form-data'
+    },
+  };
+
+  const response = await Axios.post(endpoints.users.updateImage , body, config);
+  return response.data;
+};
+
+
+//Servicio para cambiar la contraseña
+const updatePassword = async (body) => {
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      accept: "*/*",
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await Axios.post(endpoints.users.updatePassword, body, config);
+  return response.data;
+};
+
+const getImagesDefault = async () => {
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      accept: "*/*",
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await Axios.get(endpoints.users.getImagesDefault , config);
+  return response.data;
+};
+
+
+
+export { addUser, loginUser, getUser, updateUser ,getImagesDefault,updatePassword,updateImage};

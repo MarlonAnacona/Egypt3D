@@ -1,13 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { addUser } from '../../Services/users';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
-import { LoginContext } from '../context/LoginContext';
 
 export function Register() {
   // Obtener la función setIsLogged del contexto LoginContext
-  const { setIsLogged } = useContext(LoginContext);
   
   // Navegador utilizado para redireccionar después del registro exitoso
   let navigate = useNavigate();
@@ -114,7 +112,7 @@ export function Register() {
         </div>
         <div className="derecha">
         <div class="logo">
-                <img src="/images/logo.png"/>
+                <img src="/images/logo.png" alt="No disponible"/>
             </div>
             <h3 className='titulo'>Egypt 3D</h3>
             <h4 className='subtitulo'>REGISTRATE CON TU NOMBRE, CORREO Y CONTRASEÑA</h4>

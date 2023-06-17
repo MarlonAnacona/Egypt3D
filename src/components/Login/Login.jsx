@@ -126,7 +126,7 @@ export function Login() {
         </div>
         <div className="derecha-login">
             <div class="logo">
-               <img src="/images/logo.png"/>
+               <img src="/images/logo.png" alt="No disponible" />
             </div>
             <h3 className='titulo'>Egypt 3D</h3>
             <h4 className='subtitulo'>INGRESA CON TU CORREO Y CONTRASEÑA</h4>
