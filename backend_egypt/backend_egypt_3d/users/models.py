@@ -30,9 +30,10 @@ class CustomerManager(BaseUserManager):
 
 
 
-class Avatar(models.Model):
+class ProfilePicture(models.Model):
     profile_image = models.ImageField(null=True, blank=True, upload_to='profile_pictures/')
-
+    is_default_image = models.BooleanField(null=False, blank=False, default=False)
+    
 
 class UserProfile(AbstractUser, PermissionsMixin):    
     first_name = None
@@ -41,7 +42,7 @@ class UserProfile(AbstractUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=200, validators=[validators.MinLengthValidator(8)])
     # profile_image = models.ImageField(null=True, blank=True, upload_to='profile_pictures/')
-    profile_image = models.ForeignKey(Avatar, null=True, blank=False, on_delete=models.CASCADE)
+    profile_image = models.ForeignKey(ProfilePicture, null=True, blank=True, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
