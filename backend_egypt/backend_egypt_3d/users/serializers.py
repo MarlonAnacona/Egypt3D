@@ -47,7 +47,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
             instance.set_password(validated_data.get('password'))
         
         instance.username = validated_data.get('username', instance.username)
-        instance.email = validated_data.get('email', instance.email)        
+        instance.email = validated_data.get('email', instance.email)   
+        instance.profile_image = validated_data.get('profile_image', instance.email)   
         instance.save()
 
         return instance
