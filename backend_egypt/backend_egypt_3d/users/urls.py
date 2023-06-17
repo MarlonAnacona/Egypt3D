@@ -13,7 +13,8 @@ urlpatterns = [
     path('create-profile/', views.CreateUserProfileView.as_view(), name='create new user profile'),
     path('profile/<int:pk>', views.RetriveUserProfileInfoView.as_view(), name='retrive user profile info'),
     path('profile/update/<int:pk>', views.UpdateUserProfileView.as_view(), name='update user profile info'),
-    path('avatar/', views.ListAvatarsView.as_view(), name='get all avatars'),
-    path('avatar/<int:pk>', views.RetriveAvatarView.as_view(), name='get avatar with id'),
-    
+    path('default-pictures/', views.ListDefaultProfilePictures.as_view(), name='get all default profile pictures'),
+    # path('avatar/<int:pk>', views.RetriveAvatarView.as_view(), name='get avatar with id'),
+
+    path('change-password/', views.ChangePasswordView.as_view(), name='change current password'),
 ]

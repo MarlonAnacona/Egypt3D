@@ -1,20 +1,9 @@
+from django.core import validators
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from .models import UserProfile, Avatar
+from .models import UserProfile, ProfilePicture
 
 
-# class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-#     @classmethod
-#     def get_token(cls, user):
-#         token = super().get_token(user)
-
-#         customer = Customer.objects.get(email=user.email)
-#         # Add custom claims            
-#         token['email'] = customer.email,
-#         token['phone_number'] = customer.phone_number,      
-#         # ...
-
-#         return token   
 
 
 class UserProfileSerializer(serializers.ModelSerializer):    
@@ -59,8 +48,44 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 
-class AvatarSerializer(serializers.ModelSerializer):    
-    
+class ProfilePictureSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model = Avatar
+        model = ProfilePicture
         fields = '__all__' 
+
+
+class ChangePasswordSerializer(serializers.ModelSerializer):
+
+    current_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True, validators=[validators.MinLengthValidator(8)])
+
+
+    class Meta:
+        model = UserProfile
+        fields = ['current_password', 'new_password']
+
+
+    def validate(self, attrs):
+        user = self.context['request'].user
+        current_password = attrs.get('current_password')
+
+        if not user.check_password(current_password):
+            raise serializers.ValidationError("Invalid current password.")
+
+        return attrs
+
+
+    def save(self):
+        user = self.context['request'].user
+        user.set_password(self.validated_data['new_password'])
+        user.save()
+
+
+
+
+# class AvatarSerializer(serializers.ModelSerializer):    
+    
+#     class Meta:
+#         model = Avatar
+#         fields = '__all__' 
