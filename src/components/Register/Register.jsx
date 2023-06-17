@@ -114,7 +114,7 @@ export function Register() {
         </div>
         <div className="derecha">
         <div class="logo">
-                <img src="/images/logo.png"/>
+                <img src="/images/logo.png" alt=''/>
             </div>
             <h3 className='titulo'>Egypt 3D</h3>
             <h4 className='subtitulo'>REGISTRATE CON TU NOMBRE, CORREO Y CONTRASEÑA</h4>
