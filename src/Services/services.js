@@ -10,6 +10,7 @@ const endpoints = {
     updatePassword: `${URL}/users/change-password/`,
     updateImage: `${URL}/users/custom-profile-picture/`,
     getImagesDefault: `${URL}/users/default-pictures/`,
+    getImageUser: `${URL}/users/profile-picture/`,
   },
   products: {},
   workers: {},

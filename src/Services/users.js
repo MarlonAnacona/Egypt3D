@@ -99,6 +99,19 @@ const getImagesDefault = async () => {
   return response.data;
 };
 
+const getImageProfile = async (id) => {
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      accept: "*/*",
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await Axios.get(endpoints.users.getImageUser+id , config);
+  return response.data;
+};
 
 
-export { addUser, loginUser, getUser, updateUser ,getImagesDefault,updatePassword,updateImage};
+
+export { addUser, loginUser, getUser, updateUser ,getImagesDefault,updatePassword,updateImage,getImageProfile};

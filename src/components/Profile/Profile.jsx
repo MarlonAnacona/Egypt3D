@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import "./Profile.css";
 import { useEffect } from 'react';
 import jwt_decode from "jwt-decode";
-import { getUser, updateUser,getImagesDefault, updatePassword, updateImage } from '../../Services/users';
+import { getUser, updateUser,getImagesDefault, updatePassword, updateImage, getImageProfile } from '../../Services/users';
 import Swal from 'sweetalert2';
 
 export function Profile() {
@@ -15,14 +15,18 @@ export function Profile() {
       setEmail(response.email)
       setSelectedImage(response.profile_image)
       if(response.profile_image){
-        setName(response.username)
-      }
+        getImageProfile(response.profile_image).then((imageResponse=>{
+          setSelectedImage(imageResponse.profile_image)  
+          console.log(imageResponse.profile_image)
+        }))
+        
+          }
       
     })
 
     getImagesDefault().then((response)=>{
-      const profileImages = response.map(item => item.profile_image);
-      setAvatars(profileImages);
+      // const profileImages = response.map(item => item.profile_image);
+      setAvatars(response);
 
 })
 
@@ -205,7 +209,7 @@ const handleImageChange = (e) => {
       const handleConfirmAvatarSelection = () => {
         // Realiza las acciones necesarias al confirmar la selección del avatar
         const body={
-          profile_image:selectedImage
+          profile_image:selectedImage.id
                 }
         setShowAvatarSelector(false);
         updateUser(body,data.user_id).then((response)=>{
@@ -307,7 +311,7 @@ const handleImageChange = (e) => {
                     }`}
                     onClick={() => handleAvatarSelection(avatarOption)}
                 >
-                    <img src={avatarOption} alt="Avatar" />
+                    <img src={avatarOption.profile_image} alt="Avatar" />
                 </div>
                 ))}
             </div>

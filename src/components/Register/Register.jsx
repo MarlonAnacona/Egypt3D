@@ -112,6 +112,7 @@ export function Register() {
         </div>
         <div className="derecha">
         <div class="logo">
+                <img src="/images/logo.png" alt=''/>
                 <img src="/images/logo.png" alt="No disponible"/>
             </div>
             <h3 className='titulo'>Egypt 3D</h3>
