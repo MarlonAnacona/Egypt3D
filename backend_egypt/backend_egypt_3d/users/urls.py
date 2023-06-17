@@ -12,6 +12,7 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),   
     path('create-profile/', views.CreateUserProfileView.as_view(), name='create new user profile'),
     path('profile/<int:pk>', views.RetriveUserProfileInfoView.as_view(), name='retrive user profile info'),
+    path('profile-picture/<int:pk>', views.RetriveProfilePictureView.as_view(), name='retrive user profile picture'),
     path('profile/update/<int:pk>', views.UpdateUserProfileView.as_view(), name='update user profile info'),
     path('default-pictures/', views.ListDefaultProfilePictures.as_view(), name='get all default profile pictures'),
     #path('avatar/<int:pk>', views.RetriveAvatarView.as_view(), name='get avatar with id'),
