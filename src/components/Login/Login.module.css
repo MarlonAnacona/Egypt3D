@@ -1,14 +1,10 @@
-.fondo{
-  background-image: url(/public/images/fondo3.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
 
 .izquierda-login {
   width: 50%;
   margin: auto;
   height: 100vh;
+  background: rgb(103,90,81);
+background: linear-gradient(0deg, rgba(103,90,81,1) 16%, rgba(236,142,96,1) 53%, rgba(134,113,108,1) 81%);
 }
 
 .derecha-login {
@@ -22,9 +18,13 @@
   
 }
 
-#pantalla-dividida{
+.pantalla-dividida{
   display: flex;
-  
+  width: 100%;
+  height: 60vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 
@@ -35,7 +35,7 @@
   margin: auto;
   margin-top: 350px;
   margin-bottom: 20px;
-
+  text-decoration: underline;
 }
 
 .subtitulo{
@@ -85,6 +85,7 @@
   font-style: normal;
   margin-left: 5%;
   margin-bottom: 5%;
+  
 }
 
 .login-text {
@@ -117,8 +118,9 @@ input {
   width: 200%;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-left: 10%;
+  margin-left: 17%;
   justify-content: center;
+  
 }
 
 .login-button {

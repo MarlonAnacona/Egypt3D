@@ -84,7 +84,6 @@ export function Login() {
   };
 
   return (
-    <div className={styles['fondo']}>
       <section id="pantalla-dividida" className={styles['pantalla-dividida']}>
         <div className={styles['izquierda-login']}>
           <div className={styles['login-container']}>
@@ -133,7 +132,5 @@ export function Login() {
           <h4 className={styles['subtitulo']}>INGRESA CON TU CORREO Y CONTRASEÑA</h4>
         </div>
       </section>
-      <Footer visible={false} />
-    </div>
   );
 }
