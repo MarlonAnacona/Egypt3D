@@ -21,10 +21,10 @@ export function Footer({ visible }) {
       <div className={styles['footer-left']}>
         <p className={styles['footer-links']}>
           <a className="link-1" href="#">Inicio</a>
-          <a href="#">Blog</a>
+          <a href="/news">Noticias</a>
           <a href="/about">Sobre Nosotros</a>
-          <a href="#">Faq</a>
-          <a href="#">Contactanos</a>
+          <a href="https://forms.gle/bY3ypcUe2Dk1Y2549" target='blank'>Sugerencias</a>
+          <a href="/contact">Contactanos</a>
         </p>
 
         <p>Egypt 3D &copy; 2023</p>

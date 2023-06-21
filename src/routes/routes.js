@@ -18,6 +18,8 @@ import {
   import { LoginContext } from "../components/context/LoginContext";
   import { useContext } from "react";
   import { About } from "../components/About/About";
+  import { Contact } from "../components/Contact/Contact";
+  import { News } from "../components/News/News";
 
   
   export function MyRoutes() {
@@ -36,7 +38,8 @@ import {
             <Route path="/quices" element={<Quiz />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/about" element={<About />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/news" element={<News />} />
 
           </Routes>
         ) : (
@@ -46,6 +49,8 @@ import {
             <Route path="/login" element={<Login />}exact/>
             <Route path="/register" element={<Register />} exact/>
             <Route path="/about" element={<About />} exact/>
+            <Route path="/contact" element={<Contact />} exact/>
+            <Route path="/news" element={<News />} exact/>
           </Routes>
         )}
       </BrowserRouter>
