@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import './estiloModulos.css';
+import './estiloModuloMitologia.css';
 import { Link } from 'react-router-dom';
 
-export function ModuloCostumbres() {
+export function ModuloMitologia() {
   const navigate = useNavigate();
 
   // Manejar el clic en el botón de Quices
@@ -13,9 +13,9 @@ export function ModuloCostumbres() {
   return (
     <div className="Contenedor">
       <div className="izquierda">
-        {/* Navegación hacia el módulo de Arte */}
+        {/* Navegación hacia el módulo de Arquitectura */}
         <div className="navegacion">
-          <Link to="/moduloArte">
+          <Link to="/moduloArquitectura">
             <img
               src="/images/navegarIzq.png"
               alt="flecha"
@@ -23,27 +23,36 @@ export function ModuloCostumbres() {
             />
           </Link>
         </div>
-        <div className="titulo-modulo">COSTUMBRES</div>
+        <div className="titulo-modulo">MITOLOGIA</div>
         <div className="contenido-modulo">
-          Las costumbres del antiguo Egipto reflejaban la vida cotidiana y las
-          creencias arraigadas en esta antigua civilización. Los egipcios tenían
-          una sociedad jerárquica y organizada, donde el faraón era considerado
-          un dios en la Tierra y gobernaba con poder absoluto. La religión
-          desempeñaba un papel central en la vida de los egipcios, y se
-          practicaban rituales y ceremonias para honrar a los dioses y asegurar
-          la prosperidad y la vida después de la muerte. La vida familiar era
-          valorada, y el matrimonio y la crianza de los hijos eran considerados
-          importantes. La agricultura era la base de la economía, y los egipcios
-          desarrollaron sistemas de irrigación para aprovechar el Nilo y cultivar
-          sus tierras fértiles. Además, el comercio y la artesanía florecieron,
-          y se produjeron objetos como joyas, cerámica y textiles de alta calidad.
+          La mitología del antiguo Egipto está llena de dioses y diosas que
+          desempeñaban roles importantes en la vida y la creencia egipcia. Ra,
+          el dios del sol, era considerado el creador y el gobernante supremo.
+          Osiris, el dios de la vida después de la muerte, era venerado como el
+          juez de las almas en el más allá. Isis, su esposa y hermana, era la
+          diosa de la magia y la fertilidad. Otros dioses notables incluyen a
+          Horus, el dios del cielo, y Anubis, el dios de la muerte y el
+          embalsamamiento. La mitología egipcia también presenta criaturas
+          míticas como el ave fénix y el escarabajo sagrado. Los egipcios creían
+          en la importancia de los rituales y las ofrendas para asegurar el
+          favor de los dioses y garantizar una vida eterna después de la muerte.
         </div>
         <button className="buttonQuiz" onClick={handleQuicesClick}>
           <img src="/images/auditoria.png" alt="" />
           QUIZ
         </button> {/* Redirecciona a '/quices' */}
       </div>
-      <div className="derecha1">
+      <div className="derecha">
+        {/* Navegación hacia el módulo de Arte */}
+        <div className="navegacion">
+          <Link to="/moduloArte">
+            <img
+              src="/images/navegarDer.png"
+              alt="flecha"
+              className="flecha_navegationDer"
+            />
+          </Link>
+        </div>
         <div className="titulo-modulo">
           {/* Iframe con el modelo 3D de Sketchfab */}
           <iframe
@@ -63,7 +72,7 @@ export function ModuloCostumbres() {
             execution-while-out-of-viewport="true"
             execution-while-not-rendered="true"
             web-share="true"
-            src="https://sketchfab.com/3d-models/coffins-of-pa-di-mut-mut-iy-y-and-ankh-khonsu-012ae83b8d9045468b30584883149035/embed"
+            src="https://sketchfab.com/3d-models/anubis-e98a22b58f4440538f69424ed532737f/embed"
           ></iframe>
         </div>
       </div>

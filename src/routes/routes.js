@@ -8,11 +8,11 @@ import {
   import { Login } from "../components/Login/Login";
   import { Register } from "../components/Register/Register";
   import { Modules } from "../components/Modules/Modules";
-  import { ModuloHistoria } from "../components/Modules/ModuloHistoria";
-  import { ModuloArquitectura } from "../components/Modules/ModuloArquitectura";
-  import { ModuloArte } from "../components/Modules/ModuloArte";
-  import { ModuloMitologia } from "../components/Modules/ModuloMitologia";
-  import { ModuloCostumbres } from "../components/Modules/ModuloCostumbres";
+  import { ModuloHistoria } from "../components/Modules/Temas/TemaHistoria/ModuloHistoria";
+  import { ModuloArquitectura } from "../components/Modules/Temas/TemaArqui/ModuloArquitectura";
+  import { ModuloArte } from "../components/Modules/Temas/TemaArte/ModuloArte";
+  import { ModuloMitologia } from "../components/Modules/Temas/TemaMitologia/ModuloMitologia";
+  import { ModuloCostumbres } from "../components/Modules/Temas/TemaCostumbres/ModuloCostumbres";
   import { Quiz } from "../components/Quices/quiz";
   import { Profile } from "../components/Profile/Profile";
   import { LoginContext } from "../components/context/LoginContext";

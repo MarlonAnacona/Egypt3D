@@ -1,0 +1,105 @@
+.inicio {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  margin-top: 40vh;
+}
+
+.Contenedor {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.504);
+  width: 100%;
+  height: 90vh;
+}
+
+.izquierda {
+  flex: 1;
+  margin-left: 5vh;
+}
+
+.izquierda1 {
+  flex: 1;
+  margin-left: 5vh;
+  margin-top: 10vh;
+}
+
+.derecha {
+  flex: 1;
+}
+
+.derecha1 {
+  flex: 1;
+  margin-left: 5vh;
+  margin-top: 10vh;
+}
+
+.titulo-modulo {
+  font-size: 60px;
+  color: white;
+  font-weight: bold;
+}
+
+.contenido-modulo {
+  font-size: 20px;
+  color: white;
+  width: 80%;
+  padding: 10px;
+
+}
+
+.buttonQuiz {
+  margin-top: 20px;
+  display: inline-block;
+  background-color: #f2f2f2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.buttonQuiz:hover {
+  background-color: #424141;
+}
+
+.buttonQuiz img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.flecha_navegationDer {
+  transition: transform 0.3s ease;
+  width: 40px;
+  float: right;
+  margin-top: 1vh;
+  margin-right: 2vh;
+}
+
+.flecha_navegationDer:hover {
+  transform: scale(1.2); /* Escalar la imagen al 110% */
+}
+
+.navegacion {
+  overflow: auto;
+  height: 10vh;
+}
+
+.flecha_navegationIzq {
+  transition: transform 0.3s ease;
+  width: 40px;
+  float: left;
+  margin-top: 1vh;
+  margin-right: 2vh;
+  margin-left: 1vh;
+}
+
+.flecha_navegationIzq:hover {
+  transform: scale(1.2); /* Escalar la imagen al 110% */
+}

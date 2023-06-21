@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "./estiloModulos.css";
+import "./estiloModuloArte.css";
 import { Link } from "react-router-dom";
 
 export function ModuloArte() {
