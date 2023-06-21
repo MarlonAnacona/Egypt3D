@@ -33,7 +33,7 @@ background: linear-gradient(0deg, rgba(103,90,81,1) 16%, rgba(236,142,96,1) 53%,
   font-size: 100px;
   width: 50%;
   margin: auto;
-  margin-top: 350px;
+  margin-top: 40vh;
   margin-bottom: 20px;
   text-decoration: underline;
 }
@@ -48,8 +48,8 @@ background: linear-gradient(0deg, rgba(103,90,81,1) 16%, rgba(236,142,96,1) 53%,
 .logo{
   text-align: center;
   width: 100%;
-  margin-top: 250px;
-  margin-bottom: -370px;
+  margin-top: 25vh;
+  margin-bottom: -45vh;
 }
 
 .logo img{

@@ -28,7 +28,7 @@ export function Modules() {
           position: 'fixed',
           bottom: '10px',
           left: '10px',
-          width: '200px',
+          width: '300px',
           height: '20px',
           zIndex: '9999',
         }}

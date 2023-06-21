@@ -1,11 +1,10 @@
-
 .izquierda {
-    
+
     width: 50%;
     margin: auto;
     height: 100vh;
-    background: rgb(18,34,60);
-    background: linear-gradient(68deg, rgba(18,34,60,1) 60%, rgba(70,78,100,1) 95%);
+    background: rgb(18, 34, 60);
+    background: linear-gradient(68deg, rgba(18, 34, 60, 1) 60%, rgba(70, 78, 100, 1) 95%);
 }
 
 .derecha {
@@ -16,10 +15,10 @@
     height: 100vh;
     width: 50%;
     margin: auto;
-    
+
 }
 
-#pantalla-dividida{
+#pantalla-dividida {
     display: flex;
     width: 100%;
     height: 60vh;
@@ -29,32 +28,33 @@
 }
 
 
-.titulo{
+.titulo {
     color: white;
-    font-size: 100px;
-    width: 50%;
-    margin: auto;
-    margin-top: 350px;
-    margin-bottom: 20px;
-    text-decoration: underline;
+  font-size: 100px;
+  width: 50%;
+  margin: auto;
+  margin-top: 40vh;
+  margin-bottom: 20px;
+  text-decoration: underline;
 }
 
-.subtitulo{
+.subtitulo {
     color: white;
     font-size: 20px;
     width: 50%;
     margin: auto;
 }
 
-.logo{
-    margin-left: -15px;
-    width: 100%;
-    margin-top: 250px;
-    margin-bottom: -370px;
+.logo {
+    text-align: center;
+  width: 100%;
+  margin-top: 20vh;
+  margin-bottom: -45vh;
 }
 
-.logo img{
+.logo img {
     width: 15%;
+    text-align: center;
 }
 
 .register-form {
@@ -119,8 +119,8 @@ input {
     border-radius: 4px;
     margin-left: 17%;
     justify-content: center;
-    
-    
+
+
 }
 
 .register-button {
