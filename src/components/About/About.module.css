@@ -1,35 +1,27 @@
+:root {
+  --card-height: 400px; 
+  --card-width: calc(var(--card-height) );
+  --gap: 2rem; /* Espacio entre tarjetas */
+}
+
 .inicio {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan si no caben en una línea */
+  flex-wrap: wrap;
   font-size: 30px;
   text-align: center;
   color: white;
-  margin-top: 40vh;
+  padding: var(--gap);
+  gap: var(--gap);
 }
 
-:root {
-  --card-height: 400px;  /* reducir la altura */
-  --card-width: calc(var(--card-height) );  /* mantener la relación de aspecto */
+.row {
+  display: flex;
+  justify-content: space-evenly; /* Distribuye las tarjetas igualmente en la línea */
+  width: 100%;
 }
 
-
-/* El resto de tus estilos aquí... */
-
-* {
-  box-sizing: border-box;
-}
-
-
-body {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-  background: #191c29;
-}
 .card {
   width: var(--card-width);
   height: var(--card-height);
@@ -39,13 +31,14 @@ body {
   align-items: flex-end;
   padding: 0 36px;
   perspective: 2500px;
-  margin: 0 50px;
+  margin:  10px;
+  margin-top: 10%;
 }
 
 .coverImage {
   width: 100%;
   height: 100%;
-  object-fit: contain;  /* cambia cover a contain */
+  object-fit: contain;
 }
 
 .wrapper {
@@ -72,6 +65,7 @@ body {
   position: absolute;
   left: 0;
 }
+
 .wrapper::before {
   top: 0;
   height: 100%;
@@ -82,6 +76,7 @@ body {
     rgba(12, 13, 19) 97%
   );
 }
+
 .wrapper::after {
   bottom: 0;
   opacity: 1;
@@ -101,10 +96,12 @@ body {
 .card:hover .wrapper::after {
   height: 120px;
 }
+
 .title {
   width: 100%;
   transition: transform 0.5s;
 }
+
 .card:hover .title {
   transform: translate3d(0%, -50px, 100px);
 }
@@ -120,4 +117,28 @@ body {
 .card:hover .character {
   opacity: 1;
   transform: translate3d(0%, -30%, 100px);
+}
+
+.authorTitle {
+  color: white;
+  text-decoration: none;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  background: #191c29;
+}
+
+a .authorTitle {
+  color: white;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
 }
