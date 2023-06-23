@@ -24,15 +24,11 @@ export function ModuloHistoria() {
           cultura egipcia perduró en el Imperio Romano, especialmente a través de
           los cultos a Isis y Serapis.
         </div>
-        <button className="buttonQuiz" onClick={handleQuicesClick}>
-          <img src="/images/auditoria.png" alt="" />
-          QUIZ
-        </button> {/* Redirecciona a '/quices' */}
       </div>
       <div className="derecha">
         {/* Navegación hacia el módulo de Arquitectura */}
         <div className="navegacion">
-          <Link to="/moduloArquitectura">
+          <Link to="/historia1">
             <img
               src="/images/navegarDer.png"
               alt="flecha"

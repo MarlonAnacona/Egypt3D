@@ -2,7 +2,7 @@
 .contact-form {
  
     width: 545px;
-    height: 700px;
+    height: 85vh;
     left: 447px;
     top: 236px;
   
@@ -92,7 +92,7 @@
 
   .texto_mensaje {
     width: 405px; 
-  height: 150px;
+  height: 10vh;
     border-radius: 10px;
     border-style: solid; 
     border-color: #ccc;
