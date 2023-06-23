@@ -1,28 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+
 import './estiloModuloCostumbres.css';
 import { Link } from 'react-router-dom';
 
 export function ModuloCostumbres() {
-  const navigate = useNavigate();
-
-  // Manejar el clic en el botón de Quices
-  const handleQuicesClick = () => {
-    navigate('/quices'); // Redirige a la ruta '/quices'
-  };
+  
 
   return (
     <div className="Contenedor">
-      <div className="izquierda">
+      <div className="izquierda1">
         {/* Navegación hacia el módulo de Arte */}
-        <div className="navegacion">
-          <Link to="/moduloArte">
-            <img
-              src="/images/navegarIzq.png"
-              alt="flecha"
-              className="flecha_navegationIzq"
-            />
-          </Link>
-        </div>
         <div className="titulo-modulo">COSTUMBRES</div>
         <div className="contenido-modulo">
           Las costumbres del antiguo Egipto reflejaban la vida cotidiana y las
@@ -38,12 +24,18 @@ export function ModuloCostumbres() {
           sus tierras fértiles. Además, el comercio y la artesanía florecieron,
           y se produjeron objetos como joyas, cerámica y textiles de alta calidad.
         </div>
-        <button className="buttonQuiz" onClick={handleQuicesClick}>
-          <img src="/images/auditoria.png" alt="" />
-          QUIZ
-        </button> {/* Redirecciona a '/quices' */}
+        
       </div>
-      <div className="derecha1">
+      <div className="derecha">
+      <div className="navegacion">
+                    <Link to="/costumbres1">
+                        <img
+                            src="/images/navegarDer.png"
+                            alt="flecha"
+                            className="flecha_navegationDer"
+                        />
+                    </Link>
+                </div>
         <div className="titulo-modulo">
           {/* Iframe con el modelo 3D de Sketchfab */}
           <iframe
