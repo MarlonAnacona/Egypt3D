@@ -1,28 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+
 import './estiloModuloMitologia.css';
 import { Link } from 'react-router-dom';
 
 export function ModuloMitologia() {
-  const navigate = useNavigate();
 
-  // Manejar el clic en el botón de Quices
-  const handleQuicesClick = () => {
-    navigate('/quices'); // Redirige a la ruta '/quices'
-  };
 
   return (
     <div className="Contenedor">
-      <div className="izquierda">
-        {/* Navegación hacia el módulo de Arquitectura */}
-        <div className="navegacion">
-          <Link to="/moduloArquitectura">
-            <img
-              src="/images/navegarIzq.png"
-              alt="flecha"
-              className="flecha_navegationIzq"
-            />
-          </Link>
-        </div>
+      <div className="izquierda1">
         <div className="titulo-modulo">MITOLOGIA</div>
         <div className="contenido-modulo">
           La mitología del antiguo Egipto está llena de dioses y diosas que
@@ -37,15 +22,11 @@ export function ModuloMitologia() {
           en la importancia de los rituales y las ofrendas para asegurar el
           favor de los dioses y garantizar una vida eterna después de la muerte.
         </div>
-        <button className="buttonQuiz" onClick={handleQuicesClick}>
-          <img src="/images/auditoria.png" alt="" />
-          QUIZ
-        </button> {/* Redirecciona a '/quices' */}
       </div>
       <div className="derecha">
         {/* Navegación hacia el módulo de Arte */}
         <div className="navegacion">
-          <Link to="/moduloArte">
+          <Link to="/mitologia1">
             <img
               src="/images/navegarDer.png"
               alt="flecha"
