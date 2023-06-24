@@ -112,6 +112,19 @@ const getImageProfile = async (id) => {
   return response.data;
 };
 
+const Quizzes = async (id) => {
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      accept: "*/*",
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await Axios.get(endpoints.users.Quizzes+id , config);
+  return response.data;
+};
 
 
-export { addUser, loginUser, getUser, updateUser ,getImagesDefault,updatePassword,updateImage,getImageProfile};
+
+export { addUser, loginUser, getUser, updateUser ,getImagesDefault,updatePassword,updateImage,getImageProfile,Quizzes};

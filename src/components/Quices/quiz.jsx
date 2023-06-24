@@ -1,5 +1,7 @@
 import "./Quiz.css";
-import { useState } from "react";
+import { useState} from "react";
+// import { Quizzes } from "../../Services/users";
+// import { response } from "express";
 export function Quiz() {
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -7,51 +9,59 @@ export function Quiz() {
 
   const questions = [
     {
-      text: "What is the capital of America?",
+      text: "¿Cuál era el río principal que atravesaba el antiguo Egipto?",
       options: [
-        { id: 0, text: "New York City", isCorrect: false },
-        { id: 1, text: "Boston", isCorrect: false },
-        { id: 2, text: "Santa Fe", isCorrect: false },
-        { id: 3, text: "Washington DC", isCorrect: true },
+        { id: 0, text: "Nilo", isCorrect: true },
+        { id: 1, text: "Tigris", isCorrect: false },
+        { id: 2, text: "Éufrates", isCorrect: false },
+        { id: 3, text: "Níger", isCorrect: false },
       ],
     },
     {
-      text: "What year was the Constitution of America written?",
+      text: "¿Cuál fue la capital del Antiguo Egipto durante el Reino Nuevo?",
       options: [
-        { id: 0, text: "1787", isCorrect: true },
-        { id: 1, text: "1776", isCorrect: false },
-        { id: 2, text: "1774", isCorrect: false },
-        { id: 3, text: "1826", isCorrect: false },
+        { id: 0, text: "Luxor", isCorrect: false },
+        { id: 1, text: "Giza", isCorrect: false },
+        { id: 2, text: "Menfis", isCorrect: false },
+        { id: 3, text: "Tebas", isCorrect: true },
       ],
     },
     {
-      text: "Who was the second president of the US?",
+      text: "¿Quién fue el faraón más conocido por construir las Grandes Pirámides de Giza?",
       options: [
-        { id: 0, text: "John Adams", isCorrect: true },
-        { id: 1, text: "Paul Revere", isCorrect: false },
-        { id: 2, text: "Thomas Jefferson", isCorrect: false },
-        { id: 3, text: "Benjamin Franklin", isCorrect: false },
+        { id: 0, text: "Ramsés II", isCorrect: false },
+        { id: 1, text: "Tutankamón", isCorrect: false },
+        { id: 2, text: "Cleopatra", isCorrect: false },
+        { id: 3, text: "Keops", isCorrect: true },
       ],
     },
     {
-      text: "What is the largest state in the US?",
+      text: "¿Cuál fue el sistema de escritura utilizado en el antiguo Egipto?",
       options: [
-        { id: 0, text: "California", isCorrect: false },
-        { id: 1, text: "Alaska", isCorrect: true },
-        { id: 2, text: "Texas", isCorrect: false },
-        { id: 3, text: "Montana", isCorrect: false },
+        { id: 0, text: "Jeroglíficos", isCorrect: true },
+        { id: 1, text: "Cuneiforme", isCorrect: false },
+        { id: 2, text: "Alfabeto latino", isCorrect: false },
+        { id: 3, text: "Ideogramas chinos", isCorrect: false },
       ],
     },
     {
-      text: "Which of the following countries DO NOT border the US?",
+      text: "¿Qué dios egipcio era representado con cabeza de chacal?",
       options: [
-        { id: 0, text: "Canada", isCorrect: false },
-        { id: 1, text: "Russia", isCorrect: true },
-        { id: 2, text: "Cuba", isCorrect: true },
-        { id: 3, text: "Mexico", isCorrect: false },
+        { id: 0, text: "Ra", isCorrect: false },
+        { id: 1, text: "Anubis", isCorrect: true },
+        { id: 2, text: "Osiris", isCorrect: false },
+        { id: 3, text: "Horus", isCorrect: false },
       ],
     },
   ];
+  // const [idQuiz, setIdQuizz] = useState(1);
+  // const getQuizz= async(e)=>{
+  //   e.preventDefault();
+  //   Quizzes(idQuiz).then((response)=>{
+  //     localStorage.setItem("token", response.access);
+  //   })
+  // }
+
 
   // Helper Functions
 
@@ -93,7 +103,9 @@ export function Quiz() {
             {score} out of {questions.length} correct - (
             {(score / questions.length) * 100}%)
           </h2>
-          <button className="btn" onClick={() => restartGame()}>Restart game</button>
+          <button className="btn" onClick={() => restartGame()}>
+            Restart game
+          </button>
         </div>
       ) : (
         /* 5. Question Card  */
@@ -108,7 +120,8 @@ export function Quiz() {
           <ul className="ul">
             {questions[currentQuestion].options.map((option) => {
               return (
-                <li className="li"
+                <li
+                  className="li"
                   key={option.id}
                   onClick={() => optionClicked(option.isCorrect)}
                 >
@@ -119,6 +132,7 @@ export function Quiz() {
           </ul>
         </div>
       )}
+      
     </div>
   );
 }

@@ -11,6 +11,7 @@ const endpoints = {
     updateImage: `${URL}/users/custom-profile-picture/`,
     getImagesDefault: `${URL}/users/default-pictures/`,
     getImageUser: `${URL}/users/profile-picture/`,
+    Quizzes: `${URL}/quizzes/list/`,
   },
   products: {},
   workers: {},
