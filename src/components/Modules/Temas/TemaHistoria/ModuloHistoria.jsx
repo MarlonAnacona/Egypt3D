@@ -1,14 +1,8 @@
-import { useNavigate } from 'react-router-dom';
 import './estiloModuloHistoria.css';
 import { Link } from 'react-router-dom';
 
 export function ModuloHistoria() {
-  const navigate = useNavigate();
 
-  // Manejar el clic en el botón de Quices
-  const handleQuicesClick = () => {
-    navigate('/quices'); // Redirige a la ruta '/quices'
-  };
 
   return (
     <div className="Contenedor">
