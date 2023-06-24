@@ -6,7 +6,6 @@ import { useNavigate } from "react-router";
 import { loginUser } from "../../Services/users";
 import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
-import { Footer } from '../Footer/Footer'; 
 
 export function Login() {
   // Efecto para limpiar el token y establecer el estado de inicio de sesión en falso al cargar el componente

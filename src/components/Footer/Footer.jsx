@@ -12,15 +12,15 @@ export function Footer({ visible }) {
     <footer className={styles['footer-distributed']}>
         <div className={styles['footer-right']}>
 
-        <a href="#"><FontAwesomeIcon icon={faPaypal} /></a>
-        <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
-        <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
-        <a href="https://github.com/MarlonAnacona/Egypt3D" target="_blank"><FontAwesomeIcon icon={faGithub} /></a>
+        <a href="/"><FontAwesomeIcon icon={faPaypal} /></a>
+        <a href="/"><FontAwesomeIcon icon={faTwitter} /></a>
+        <a href="/"><FontAwesomeIcon icon={faInstagram} /></a>
+        <a href="https://github.com/MarlonAnacona/Egypt3D" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
 
       </div>
       <div className={styles['footer-left']}>
         <p className={styles['footer-links']}>
-          <a className="link-1" href="#">Inicio</a>
+          <a className="link-1" href="/">Inicio</a>
           <a href="/news">Noticias</a>
           <a href="/about">Sobre Nosotros</a>
           <a href="https://forms.gle/bY3ypcUe2Dk1Y2549" target='blank'>Sugerencias</a>
