@@ -11,6 +11,7 @@ export function Historia2() {
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
+                <h2>HISTORIA DE EGIPTO - DISTINCION</h2>
         <div className="contenido-modulo">
         Una de las maravillas más impresionantes de la antigua civilización egipcia son las Grandes Pirámides de Giza. Estas imponentes estructuras fueron construidas por orden del faraón Keops, también conocido como Jufu, quien perteneció a la Cuarta Dinastía del Antiguo Reino. Las pirámides, como la famosa Pirámide de Keops, estaban destinadas a servir como tumbas para los faraones, y se creía que aseguraban su ascenso al cielo y su vida eterna en el más allá.
         <br />

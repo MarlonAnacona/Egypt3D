@@ -16,6 +16,7 @@ export function Mitologia1() {
                         />
                     </Link>
                 </div>
+                <h2>MITOLOGIA - RA, ANUBIS, ATHOR</h2>
                 <div className="contenido-modulo">
                 La mitología egipcia está llena de dioses y diosas que representaban diferentes aspectos de la vida y el universo. Uno de los dioses más prominentes era Ra, el dios del sol. Ra era considerado el creador y dador de vida, y su imagen era representada con cabeza de halcón y un disco solar sobre ella.
                 <br />

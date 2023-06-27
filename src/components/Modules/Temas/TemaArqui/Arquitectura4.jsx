@@ -19,6 +19,7 @@ export function Arquitectura4() {
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
+                <h2>ARQUITECTURA - SALAS</h2>
                 <div className="contenido-modulo">
                     La sala hipóstila era una estructura arquitectónica común en los templos egipcios. Consistía en una serie de pilares unidos por un techo y se utilizaba para albergar ofrendas y rituales religiosos. Estas salas eran impresionantes tanto en tamaño como en decoración, con hermosos relieves y jeroglíficos tallados en los pilares y paredes. La sala hipóstila proporcionaba un espacio sagrado y solemne donde los sacerdotes y los adoradores podían realizar sus rituales y venerar a los dioses.
                     <br />

@@ -10,6 +10,7 @@ export function Historia1() {
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
+                <h2>HISTORIA DE EGIPTO - INICIOS</h2>
         <div className="contenido-modulo">
         El antiguo Egipto, una de las civilizaciones más fascinantes de la historia, se desarrolló a lo largo de las riberas del río Nilo, el río principal que atravesaba esta antigua tierra. El Nilo fue una fuente vital de vida para los egipcios, ya que proporcionaba agua para la agricultura, transporte y pesca, además de ser un símbolo de fertilidad y renovación. Las crecidas anuales del Nilo dejaban sedimentos fértiles en las tierras circundantes, permitiendo el cultivo de una amplia variedad de cultivos.
         <br />

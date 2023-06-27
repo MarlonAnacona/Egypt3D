@@ -15,7 +15,8 @@ const Navbar = () => {
   return (
     <div className={styles.Navbar}>
       <img src="/images/logo.png" alt="Logo" className={styles['nav-logo']} />
-      <span className={styles['nav-title']}>Egypt 3D</span>
+      {isLogged && <a className={styles['nav-title']} href="/modules">Egypt 3D</a>}
+      {!isLogged && <a className={styles['nav-title']} href="/">Egypt 3D</a>}
       <div className={`${styles['nav-items']} ${isOpen && styles.open}`}>
         {/* Mostrar elementos del menú según el estado de inicio de sesión */}
         {isLogged && <a href="/profile">Perfil</a>}

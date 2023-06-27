@@ -18,6 +18,7 @@ export function Costumbres2() {
                         />
                     </Link>
                 </div>
+                <h2>COSTUMBRES - COMIDA Y ESCRITURA</h2>
                 <div className="contenido-modulo">
                     Una de las principales comidas en el antiguo Egipto era el pan de trigo. El pan era un alimento básico en la dieta egipcia y se elaboraba con harina de trigo. También se consumían otros alimentos como frutas, verduras, legumbres, pescado y carne en menor medida.
                     <br />

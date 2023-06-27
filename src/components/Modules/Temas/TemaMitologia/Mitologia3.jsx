@@ -16,6 +16,7 @@ export function Mitologia3() {
                         />
                     </Link>
                 </div>
+                <h2>MITOLOGIA - BASTET, HAPI, AMON</h2>
                 <div className="contenido-modulo">
                     Bastet era la diosa leona, protectora de la familia y el hogar. Con cabeza de león o como una mujer con cabeza de león, era adorada como una diosa benevolente y era símbolo de la maternidad y la protección.                <br />
                     <br />

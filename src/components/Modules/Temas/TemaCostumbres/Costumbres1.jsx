@@ -18,6 +18,7 @@ export function Costumbres1() {
             />
           </Link>
         </div>
+        <h2>COSTUMBRES - BEBIDA Y VESTIMENTA</h2>
         <div className="contenido-modulo">
           Las costumbres y la vida diaria de los antiguos egipcios estaban estrechamente influenciadas por el río Nilo, que desempeñaba un papel fundamental en su sociedad. El Nilo proporcionaba agua para el riego de los campos, lo que permitía una agricultura próspera, y también servía como una importante vía de transporte.
           <br />

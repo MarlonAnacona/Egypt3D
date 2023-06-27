@@ -16,6 +16,7 @@ export function Arte3() {
                         />
                     </Link>
                 </div>
+                <h2>ARTE - JOYAS</h2>
                 <div className="contenido-modulo">
                 La tumba de Tutankamón es considerada el ejemplo más famoso de la arquitectura funeraria del antiguo Egipto. Descubierta en el Valle de los Reyes en 1922, esta tumba estaba llena de tesoros y artefactos que proporcionaron valiosa información sobre la vida y la muerte de un faraón.
                 <br />

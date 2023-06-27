@@ -16,6 +16,7 @@ export function Mitologia2() {
                         />
                     </Link>
                 </div>
+                <h2>MITOLOGIA - OSIRIS, SET, NUT, THOT</h2>
                 <div className="contenido-modulo">
                 Osiris era el dios del inframundo y el juicio de las almas. Era el encargado de juzgar a los difuntos en la vida después de la muerte y asegurar su eternidad. Osiris también era considerado el dios de la fertilidad y el renacimiento.
                 <br />

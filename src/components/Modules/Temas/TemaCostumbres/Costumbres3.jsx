@@ -18,6 +18,7 @@ export function Costumbres3() {
                         />
                     </Link>
                 </div>
+                <h2>COSTUMBRES - FESTIVALES Y CREENCIAS</h2>
                 <div className="contenido-modulo">
                     El Festival de Opet era la principal festividad religiosa del antiguo Egipto y se celebraba anualmente. Durante este festival, se llevaban a cabo procesiones ceremoniales en honor a los dioses Amón, Mut y Jonsu. Era un momento de celebración y renovación religiosa en el que se realizaban ofrendas y se llevaban estatuas de los dioses en barcas sagradas.                    
                     <br />

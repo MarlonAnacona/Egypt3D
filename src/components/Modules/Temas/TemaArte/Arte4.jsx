@@ -24,6 +24,7 @@ export function Arte4() {
                         />
                     </Link>
                 </div>
+                <h2>ARTE - TEMPLO</h2>
                 <div className="contenido-modulo">
                     Las pirámides eran las estructuras arquitectónicas utilizadas para albergar los cuerpos embalsamados de los faraones. Estas enormes construcciones, como la Gran Pirámide de Giza, representaban los complejos rituales y religiosos asociados con la vida después de la muerte en el antiguo Egipto.                <br />
                     <br />

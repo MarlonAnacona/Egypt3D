@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./Modules.css";
 import ReactAudioPlayer from 'react-audio-player';
 import song from '../audio/song.mp3';
+import { Footer } from '../Footer/Footer'; 
 
 export function Modules() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export function Modules() {
     navigate(moduleLink);
   };
 
-  return (
+  return (<div>
     <div className="card-container">
       {/* Reproductor de audio */}
       <ReactAudioPlayer
@@ -32,6 +33,7 @@ export function Modules() {
           height: '20px',
           zIndex: '9999',
         }}
+        volume={0.05}
       />
 
       {/* Tarjeta de Historia */}
@@ -154,6 +156,8 @@ export function Modules() {
           </div>
         </div>
       </div>
+    </div>
+    <Footer visible={true} />
     </div>
   );
 }

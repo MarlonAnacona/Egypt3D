@@ -16,6 +16,7 @@ export function Arte2() {
                         />
                     </Link>
                 </div>
+                <h2>ARTE - REPRESENTACIONES</h2>
                 <div className="contenido-modulo">
                 Thot, la deidad egipcia asociada con el conocimiento y la escritura, era representada con cuerpo humano y cabeza de ibis. Esta representación simbolizaba su papel como el dios de la sabiduría y la escritura.
                 <br />

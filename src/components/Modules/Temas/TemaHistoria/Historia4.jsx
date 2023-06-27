@@ -19,6 +19,7 @@ export function Historia4() {
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
+                <h2>HISTORIA DE EGIPTO - PRIMER FARAON</h2>
                 <div className="contenido-modulo">
                     En los albores de la civilización egipcia, Narmer, también conocido como Menes, se considera el primer faraón de Egipto. Narmer unificó el Alto y Bajo Egipto, estableciendo así las bases para una de las civilizaciones más duraderas y poderosas del mundo antiguo.
                 <br />

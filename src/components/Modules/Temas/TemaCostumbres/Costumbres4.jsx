@@ -24,6 +24,7 @@ export function Costumbres4() {
                         />
                     </Link>
                 </div>
+                <h2>COSTUMBRES - FUNERALES</h2>
                 <div className="contenido-modulo">
                     En las tumbas del antiguo Egipto, era común realizar momificaciones. Los egipcios creían en la vida después de la muerte y consideraban la preservación del cuerpo como esencial para la vida eterna. Las momificaciones implicaban la extracción de los órganos internos, el tratamiento del cuerpo con sustancias conservantes y su envoltura en vendas de lino para asegurar su preservación.
                     <br />

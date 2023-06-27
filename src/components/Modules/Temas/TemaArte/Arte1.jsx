@@ -16,6 +16,7 @@ export function Arte1() {
                         />
                     </Link>
                 </div>
+                <h2>ARTE - SIMBOLOS</h2>
                 <div className="contenido-modulo">
                 El arte del antiguo Egipto se caracterizaba por su enfoque monumental y su rica simbología. En la escultura, el material de construcción principal utilizado era la piedra caliza. Los antiguos egipcios esculpían figuras en piedra para representar a los faraones, dioses y otros personajes importantes de la sociedad.
                 <br />

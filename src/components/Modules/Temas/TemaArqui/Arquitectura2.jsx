@@ -11,6 +11,7 @@ export function Arquitectura2() {
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
+                <h2>ARQUITECTURA - ESFINGE</h2>
                 <div className="contenido-modulo">
                     La piedra caliza fue el material de construcción característico utilizado en la arquitectura egipcia. Su durabilidad y abundancia en la región permitieron la creación de monumentos duraderos y magníficos. Los antiguos egipcios también emplearon otros materiales como ladrillos de barro y adobe en estructuras menos monumentales.
                     <br />

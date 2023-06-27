@@ -11,6 +11,7 @@ export function Historia3() {
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
+                <h2>HISTORIA DE EGIPTO - LEGADO</h2>
         <div className="contenido-modulo">
         La religión desempeñaba un papel central en la vida de los egipcios, y se adoraba a una multitud de dioses y diosas. Entre ellos, Anubis, representado con cabeza de chacal, era el dios asociado con el embalsamamiento y el más allá. Ra, el dios del sol, era ampliamente adorado y se le atribuía el poder de dar vida y sustentar el universo.
         <br />

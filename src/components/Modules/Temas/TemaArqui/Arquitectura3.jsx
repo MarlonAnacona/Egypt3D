@@ -11,6 +11,7 @@ export function Arquitectura3() {
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
+                <h2>ARQUITECTURA - TEMPLOS</h2>
                 <div className="contenido-modulo">
                     El Templo de Karnak es uno de los templos más destacados de Egipto. Este vasto complejo arquitectónico, dedicado al dios Amón, se encuentra en Luxor y cuenta con numerosos pilonos, salas hipóstilas y columnas impresionantes. El Templo de Abu Simbel, tallado en la roca de una montaña, es otro ejemplo destacado de la arquitectura egipcia.
                     <br />

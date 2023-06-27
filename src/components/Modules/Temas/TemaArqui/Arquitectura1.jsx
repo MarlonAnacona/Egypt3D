@@ -11,6 +11,7 @@ export function Arquitectura1() {
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
+                <h2>ARQUITECTURA - PIRAMIDES</h2>
         <div className="contenido-modulo">
         La arquitectura del antiguo Egipto es reconocida por sus imponentes estructuras funerarias y templos magníficos. Una de las estructuras funerarias más comunes utilizadas para enterrar a los faraones era la mastaba. Las mastabas eran construcciones rectangulares con paredes inclinadas y una pequeña capilla en su interior para albergar los rituales funerarios y las ofrendas a los difuntos.
         <br />
