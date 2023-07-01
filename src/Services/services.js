@@ -1,5 +1,4 @@
 const URL = "https://egypt-backend.onrender.com";
-
 const endpoints = {
   users: {
     getAll: `${URL}/users`,
@@ -11,7 +10,10 @@ const endpoints = {
     updateImage: `${URL}/users/custom-profile-picture/`,
     getImagesDefault: `${URL}/users/default-pictures/`,
     getImageUser: `${URL}/users/profile-picture/`,
-    Quizzes: `${URL}/quizzes/list/`,
+    getQuizz: `${URL}/quizzes/list/`,
+    getQuestions: `${URL}/questions/for-quiz/`,
+    getAnswers: `${URL}/questions/`,
+    getCorrectAnswer: `${URL}/questions/`,
   },
   products: {},
   workers: {},

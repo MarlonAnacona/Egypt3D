@@ -112,7 +112,7 @@ const getImageProfile = async (id) => {
   return response.data;
 };
 
-const Quizzes = async (id) => {
+const getQuizz = async (id) => {
   const config = {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -121,10 +121,49 @@ const Quizzes = async (id) => {
     },
   };
 
-  const response = await Axios.get(endpoints.users.Quizzes+id , config);
+  const response = await Axios.get(endpoints.users.getQuizz, config);
+  return response.data;
+};
+
+const getQuestions = async (id) => {
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      accept: "*/*",
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await Axios.get(endpoints.users.getQuestions+"?quiz_id="+id, config);
+  return response.data;
+};
+const getAnswers = async (id) => {
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      accept: "*/*",
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await Axios.get(endpoints.users.getAnswers+id+"answers" , config);
+  return response.data;
+};
+
+const getCorrectAnswer = async (id) => {
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      accept: "*/*",
+      "Content-Type": "application/json",
+    },
+  };
+
+  const response = await Axios.get(endpoints.users.getAnswers+id+"correct-answers" , config);
   return response.data;
 };
 
 
 
-export { addUser, loginUser, getUser, updateUser ,getImagesDefault,updatePassword,updateImage,getImageProfile,Quizzes};
+
+export { addUser, loginUser, getUser, updateUser ,getImagesDefault,updatePassword,updateImage,getImageProfile,getQuizz,getQuestions,getAnswers,getCorrectAnswer};
