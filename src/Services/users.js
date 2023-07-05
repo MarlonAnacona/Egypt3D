@@ -112,7 +112,7 @@ const getImageProfile = async (id) => {
   return response.data;
 };
 
-const getQuizz = async (id) => {
+const getQuizz = async () => {
   const config = {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('token'),

@@ -1,12 +1,20 @@
 import "./Quiz.css";
-import { useState} from "react";
-// import { Quizzes } from "../../Services/users";
-// import { response } from "express";
+import { useState, useEffect } from "react";
+//import jwt_decode from "jwt-decode";
+import { getQuizz } from "../../Services/users";
 export function Quiz() {
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  //const [theme, setTheme] = useState("");
+  //const data = jwt_decode(localStorage.getItem("token"));
 
+  useEffect(() => {
+    getQuizz().then((response)=>{
+      console.log(response)
+      console.log(response.subject)
+    })
+  }, []);
   const questions = [
     {
       text: "¿Cuál era el río principal que atravesaba el antiguo Egipto?",
@@ -54,16 +62,6 @@ export function Quiz() {
       ],
     },
   ];
-  // const [idQuiz, setIdQuizz] = useState(1);
-  // const getQuizz= async(e)=>{
-  //   e.preventDefault();
-  //   Quizzes(idQuiz).then((response)=>{
-  //     localStorage.setItem("token", response.access);
-  //   })
-  // }
-
-
-  // Helper Functions
 
   /* A possible answer was clicked */
   const optionClicked = (isCorrect) => {
@@ -132,7 +130,6 @@ export function Quiz() {
           </ul>
         </div>
       )}
-      
     </div>
   );
 }
