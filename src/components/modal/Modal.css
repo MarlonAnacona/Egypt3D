@@ -1,0 +1,61 @@
+/* ImagenModal.css */
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(59, 77, 167, 0.75); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ImagenModal {
+    position: relative;  /* Añade una posición relativa al modal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(29, 28, 56, 0.88);
+    padding: 20px;
+    color: #ffffff;
+    max-height: 80vh;
+    overflow-y: auto; 
+    width: 80%; /* Agregado para limitar la anchura del modal, ajusta como sea necesario */
+  }
+  
+  .CloseButton {
+    position: absolute;  /* Posición absoluta para el botón de cierre */
+    top: 10px;  /* Posicionamiento en la esquina superior derecha */
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .ModalTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .ImagenModal > div {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .ImagenModal > div > img {
+    width: 100%; 
+    height: auto;
+  }
+  
+  .ImagenModal > div > p {
+    margin-top: 10px;
+    font-size: 25px; /* Aumenta el tamaño del texto de la descripción */
+    font-weight: 500; /* Agrega negrita a la descripción */
+  }
+  

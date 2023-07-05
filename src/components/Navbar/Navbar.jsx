@@ -3,19 +3,29 @@ import styles from './Navbar.module.css';
 import { LoginContext } from "../context/LoginContext";
 import { getImageProfile, getUser } from "../../Services/users";
 import jwt_decode from "jwt-decode";
+import ImagenModal from "../modal/Modal";
+
 
 const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false); // Nuevo estado para el modal
   const { isLogged, setIsLogged } = useContext(LoginContext);
   const [name, setName] = useState('');
+  const [selectedImage, setSelectedImage] = useState("/images/perfil.png");
+
+  // ...
+
+  const handleOpenHelp = (event) => {
+    event.preventDefault(); // Prevenir la navegación por defecto del enlace
+    setModalIsOpen(true); // Abrir el modal
+  };
 
   const handleLogout = () => {
     // Lógica para cerrar sesión
     localStorage.removeItem("token");
     setIsLogged(false);
   };
-  const [selectedImage, setSelectedImage] = useState("/images/perfil.png");
 
   useEffect(()=>{
     if(isLogged){
@@ -54,11 +64,14 @@ const Navbar = () => {
         {!isLogged && <a href="/">Inicio</a>}
         {!isLogged && <a href="/register">Registrate</a>} 
         {!isLogged && <a href="/login">Inicia Sesión</a>}
+        {<a href="/" onClick={handleOpenHelp}> Ayuda</a>}
         {isLogged && (
           <a href="/" onClick={handleLogout}>
             Cerrar Sesión
           </a>
         )}
+      <ImagenModal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} />
+
       </div>
       <div
         className={`${styles['nav-toggle']} ${isOpen && styles.open}`}
