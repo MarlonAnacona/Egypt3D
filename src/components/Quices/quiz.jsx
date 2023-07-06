@@ -15,29 +15,25 @@ export function Quiz() {
   const [score, setScore] = useState(0);
   const [subject, setSubject] = useState("");
 
-  const loadQuestions = () => {
-    getQuestions(1)
-      .then((response) => {
-        console.log(response);
+  const loadQuestions = async () => {
+    try {
+        const response = await getQuestions(1);
         setCurrentQuestion(response);
-        setCurrentQuestionIndex(0);
-
-        // Reiniciar el índice de la pregunta
-      })
-      .catch((error) => {
+        await loadAnswer(response[0].id); // Asegúrate de que la respuesta tenga al menos un objeto
+    } catch (error) {
         console.log("Error al obtener las preguntas del quiz:", error);
-      });
-  };
-  const loadAnswers = () => {
-    getAnswers(1)
-      .then((response) => {
-        console.log(response);
+    }
+};
+
+const loadAnswer = async (questionId) => {
+    try {
+        const response = await getAnswers(questionId);
         setAnswers(response);
-      })
-      .catch((error) => {
+    } catch (error) {
         console.log("Error al obtener las respuestas del quiz:", error);
-      });
-  };
+    }
+}
+
 
   useEffect(() => {
     getQuizz().then((response) => {
@@ -54,18 +50,17 @@ export function Quiz() {
   }, []);
 
   useEffect(() => {
+    setCurrentQuestionIndex(0);
+
     loadQuestions();
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    loadAnswers();
-  }, []);
-
+ 
   useEffect(() => {
     getCorrectAnswer(1)
       .then((response) => {
         setCorrectAnswer(response);
-        console.log(response);
       })
       .catch((error) => {
         console.log(
@@ -86,21 +81,26 @@ export function Quiz() {
     // Increment the score
     if (selectAnswer) {
       setScore(score + 1);
-      console.log("correcto");
     }
-    if (currentQuestionIndex + 1 < currentQuestion.length) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+
+    const nextQuestionIndex = currentQuestionIndex + 1;
+    if (nextQuestionIndex < currentQuestion.length) {
+      setCurrentQuestionIndex(nextQuestionIndex);
+      loadAnswer(currentQuestion[nextQuestionIndex].id);
     } else {
       setShowResults(true);
     }
-    console.log("Option clicked:", selectedOption);
-    console.log("Current question index:", currentQuestionIndex);
   };
+
+
   /* Resets the game back to default */
   const restartGame = () => {
     setScore(0);
     setShowResults(false);
+    setCurrentQuestionIndex(0);
+
     loadQuestions();
+    
   };
 
   return (
