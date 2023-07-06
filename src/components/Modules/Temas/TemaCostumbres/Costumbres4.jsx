@@ -8,7 +8,7 @@ export function Costumbres4() {
 
     // Manejar el clic en el botón de Quices
     const handleQuicesClick = () => {
-        navigate('/quices'); // Redirige a la ruta '/quices'
+        navigate('/quices5'); // Redirige a la ruta '/quices'
     };
 
     return (

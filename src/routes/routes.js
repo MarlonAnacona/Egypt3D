@@ -13,7 +13,11 @@ import {
   import { ModuloArte } from "../components/Modules/Temas/TemaArte/ModuloArte";
   import { ModuloMitologia } from "../components/Modules/Temas/TemaMitologia/ModuloMitologia";
   import { ModuloCostumbres } from "../components/Modules/Temas/TemaCostumbres/ModuloCostumbres";
-  import { Quiz } from "../components/Quices/quiz";
+  import { Quiz} from "../components/Quices/quiz";
+  import { Quiz2 } from "../components/Quices/quiz2";
+  import { Quiz3 } from "../components/Quices/quiz3";
+  import { Quiz4 } from "../components/Quices/quiz4";
+  import { Quiz5 } from "../components/Quices/quiz5";
   import { Profile } from "../components/Profile/Profile";
   import { LoginContext } from "../components/context/LoginContext";
   import { useContext } from "react";
@@ -57,6 +61,10 @@ import {
             <Route path="/moduloMitologia" element={<ModuloMitologia />} />
             <Route path="/moduloCostumbres" element={<ModuloCostumbres />} />
             <Route path="/quices" element={<Quiz />} />
+            <Route path="/quices2" element={<Quiz2 />} />
+            <Route path="/quices3" element={<Quiz3 />} />
+            <Route path="/quices4" element={<Quiz4 />} />
+            <Route path="/quices5" element={<Quiz5 />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

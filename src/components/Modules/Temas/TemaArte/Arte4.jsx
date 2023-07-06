@@ -8,7 +8,7 @@ export function Arte4() {
 
     // Manejar el clic en el botón de Quices
     const handleQuicesClick = () => {
-        navigate("/quices"); // Redirige a la ruta '/quices'
+        navigate("/quices4"); // Redirige a la ruta '/quices'
     };
 
     return (

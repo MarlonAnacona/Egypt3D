@@ -6,7 +6,7 @@ import {
   getAnswers,
   getCorrectAnswer,
 } from "../../Services/users";
-export function Quiz() {
+export function Quiz3() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState([]);
@@ -16,7 +16,7 @@ export function Quiz() {
   const [subject, setSubject] = useState("");
 
   const loadQuestions = () => {
-    getQuestions(1)
+    getQuestions(3)
       .then((response) => {
         console.log(response);
         setCurrentQuestion(response);
@@ -29,7 +29,7 @@ export function Quiz() {
       });
   };
   const loadAnswers = () => {
-    getAnswers(1)
+    getAnswers(21)
       .then((response) => {
         console.log(response);
         setAnswers(response);
@@ -41,7 +41,7 @@ export function Quiz() {
 
   useEffect(() => {
     getQuizz().then((response) => {
-      const id = 1; // ID que deseas asignar
+      const id = 3; // ID que deseas asignar
       const quiz = response.find((item) => item.id === id);
       console.log(response);
       if (quiz) {
@@ -62,7 +62,7 @@ export function Quiz() {
   }, []);
 
   useEffect(() => {
-    getCorrectAnswer(1)
+    getCorrectAnswer(11)
       .then((response) => {
         setCorrectAnswer(response);
         console.log(response);
