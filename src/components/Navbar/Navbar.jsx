@@ -40,7 +40,7 @@ const Navbar = () => {
             setSelectedImage(imageResponse.profile_image)  
           }))
         }
-      })
+      })  
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isLogged])
@@ -60,7 +60,6 @@ const Navbar = () => {
         {isLogged && <a href="/profile">Perfil</a>}
         {isLogged && <a href="/modules">Modulos</a>}
         
-        {isLogged && <a href="/">Inicio</a>}
         {!isLogged && <a href="/">Inicio</a>}
         {!isLogged && <a href="/register">Registrate</a>} 
         {!isLogged && <a href="/login">Inicia Sesión</a>}

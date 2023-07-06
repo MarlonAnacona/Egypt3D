@@ -1,77 +1,90 @@
 import "./Quiz.css";
 import { useState, useEffect } from "react";
-//import jwt_decode from "jwt-decode";
-import { getQuizz } from "../../Services/users";
+import {
+  getQuizz,
+  getQuestions,
+  getAnswers,
+  getCorrectAnswer,
+} from "../../Services/users";
 export function Quiz() {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState([]);
+  const [answers, setAnswers] = useState([]);
+  const [correctAnswer, setCorrectAnswer] = useState([]);
   const [score, setScore] = useState(0);
-  //const [theme, setTheme] = useState("");
-  //const data = jwt_decode(localStorage.getItem("token"));
+  const [subject, setSubject] = useState("");
+
+  const loadQuestions = () => {
+    getQuestions(2)
+      .then((response) => {
+        console.log(response);
+        setCurrentQuestion(response);
+        setCurrentQuestionIndex(0); // Reiniciar el índice de la pregunta
+      })
+      .catch((error) => {
+        console.log("Error al obtener las preguntas del quiz:", error);
+      });
+  };
+  const loadAnswers = () => {
+    getAnswers(11)
+      .then((response) => {
+        console.log(response);
+        setAnswers(response);
+      })
+      .catch((error) => {
+        console.log("Error al obtener las respuestas del quiz:", error);
+      });
+  };
 
   useEffect(() => {
-    getQuizz().then((response)=>{
-      console.log(response)
-      console.log(response.subject)
-    })
+    getQuizz().then((response) => {
+      const id = 2; // ID que deseas asignar
+      const quiz = response.find((item) => item.id === id);
+      console.log(response);
+      if (quiz) {
+        console.log(quiz.subject);
+        setSubject(quiz.subject); // Acceso a la propiedad "subject" del objeto encontrado
+      } else {
+        console.log("No se encontró ningún objeto con el ID proporcionado.");
+      }
+    });
   }, []);
-  const questions = [
-    {
-      text: "¿Cuál era el río principal que atravesaba el antiguo Egipto?",
-      options: [
-        { id: 0, text: "Nilo", isCorrect: true },
-        { id: 1, text: "Tigris", isCorrect: false },
-        { id: 2, text: "Éufrates", isCorrect: false },
-        { id: 3, text: "Níger", isCorrect: false },
-      ],
-    },
-    {
-      text: "¿Cuál fue la capital del Antiguo Egipto durante el Reino Nuevo?",
-      options: [
-        { id: 0, text: "Luxor", isCorrect: false },
-        { id: 1, text: "Giza", isCorrect: false },
-        { id: 2, text: "Menfis", isCorrect: false },
-        { id: 3, text: "Tebas", isCorrect: true },
-      ],
-    },
-    {
-      text: "¿Quién fue el faraón más conocido por construir las Grandes Pirámides de Giza?",
-      options: [
-        { id: 0, text: "Ramsés II", isCorrect: false },
-        { id: 1, text: "Tutankamón", isCorrect: false },
-        { id: 2, text: "Cleopatra", isCorrect: false },
-        { id: 3, text: "Keops", isCorrect: true },
-      ],
-    },
-    {
-      text: "¿Cuál fue el sistema de escritura utilizado en el antiguo Egipto?",
-      options: [
-        { id: 0, text: "Jeroglíficos", isCorrect: true },
-        { id: 1, text: "Cuneiforme", isCorrect: false },
-        { id: 2, text: "Alfabeto latino", isCorrect: false },
-        { id: 3, text: "Ideogramas chinos", isCorrect: false },
-      ],
-    },
-    {
-      text: "¿Qué dios egipcio era representado con cabeza de chacal?",
-      options: [
-        { id: 0, text: "Ra", isCorrect: false },
-        { id: 1, text: "Anubis", isCorrect: true },
-        { id: 2, text: "Osiris", isCorrect: false },
-        { id: 3, text: "Horus", isCorrect: false },
-      ],
-    },
-  ];
+
+  useEffect(() => {
+     loadQuestions();
+  }, []);
+
+  useEffect(() => {
+    loadAnswers();
+  }, []); 
+
+  useEffect(() => {
+    getCorrectAnswer(11)
+      .then((response) => {
+        setCorrectAnswer(response);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(
+          "Error al obtener las respuestas correctas del quiz:",
+          error
+        );
+      });
+  }, []);
 
   /* A possible answer was clicked */
-  const optionClicked = (isCorrect) => {
+  const optionClicked = (selectedOption) => {
+    const selectAnswer = correctAnswer.find(
+      (answer) => answer.answer_id === selectedOption
+    );
     // Increment the score
-    if (isCorrect) {
+    if (selectAnswer) {
       setScore(score + 1);
+      console.log("correcto");
     }
-
-    if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestionIndex + 1 < currentQuestion.length) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
       setShowResults(true);
     }
@@ -80,29 +93,29 @@ export function Quiz() {
   /* Resets the game back to default */
   const restartGame = () => {
     setScore(0);
-    setCurrentQuestion(0);
+    //setCurrentQuestion([0]);
     setShowResults(false);
+    loadQuestions();
+    //setRestart(!restart);
   };
 
   return (
     <div className="cont-grande">
       {/* 1. Header  */}
-      <h1 className="text">Quiz de conocimientos</h1>
-
+      <h1 className="text">Quiz de conocimientos de {subject}</h1>
       {/* 2. Current Score  */}
-      <h2 className="text">Score: {score}</h2>
-
+      <h2 className="text">Puntaje: {score}</h2>
       {/* 3. Show results or show the question game  */}
       {showResults ? (
         /* 4. Final Results */
         <div className="final-results">
           <h1 className="text">Final Results</h1>
           <h2 className="text">
-            {score} out of {questions.length} correct - (
-            {(score / questions.length) * 100}%)
+            {score} de {currentQuestion.length} correct - (
+            {(score / currentQuestion.length) * 100}%)
           </h2>
           <button className="btn" onClick={() => restartGame()}>
-            Restart game
+            Volver a jugar
           </button>
         </div>
       ) : (
@@ -110,20 +123,25 @@ export function Quiz() {
         <div className="question-card">
           {/* Current Question  */}
           <h2 className="text">
-            Question: {currentQuestion + 1} out of {questions.length}
+            Pregunta: {currentQuestionIndex + 1} de {currentQuestion.length}
           </h2>
-          <h3 className="question-text">{questions[currentQuestion].text}</h3>
+          {currentQuestion.length > 0 && (
+            <h3 className="question-text">
+              {currentQuestion[currentQuestionIndex].question_text}
+            </h3>
+          )}
 
           {/* List of possible answers  */}
+
           <ul className="ul">
-            {questions[currentQuestion].options.map((option) => {
+            {answers.map((answer) => {
               return (
                 <li
                   className="li"
-                  key={option.id}
-                  onClick={() => optionClicked(option.isCorrect)}
+                  key={answer.id}
+                  onClick={() => optionClicked(answer.id)}
                 >
-                  {option.text}
+                  {answer.answer_text}{" "}
                 </li>
               );
             })}

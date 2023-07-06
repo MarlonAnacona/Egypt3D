@@ -146,7 +146,7 @@ const getAnswers = async (id) => {
     },
   };
 
-  const response = await Axios.get(endpoints.users.getAnswers+id+"answers" , config);
+  const response = await Axios.get(endpoints.users.getAnswers+id+"/answers/" , config);
   return response.data;
 };
 
@@ -159,7 +159,7 @@ const getCorrectAnswer = async (id) => {
     },
   };
 
-  const response = await Axios.get(endpoints.users.getAnswers+id+"correct-answers" , config);
+  const response = await Axios.get(endpoints.users.getAnswers+id+"/correct-answers/" , config);
   return response.data;
 };
 
