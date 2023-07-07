@@ -1,271 +1,334 @@
 /* Profile.css */
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    word-wrap: break-word;
-  }
-  
-  .profile-card {
-    width: 400px;
-    padding: 20px;
-    margin: 0 20px;
-    background: rgba(18, 18, 18, 0.88);
-    /* Elevation/Outlined Dark */
-    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
-    border-radius: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #fff;
-    font-size: 30px;
-    font-style: normal;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .texto {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #fff;
-    font-size: 15px;
-    font-style: italic;
-  }
-  
-  .input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    width: 100%;
-    box-sizing: border-box;
-    margin-left: 0px;
-    background-color: #624b7900;
-    border-radius: 10px;
-    width: 100%;
-    color: #fff;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  word-wrap: break-word;
+}
 
-  #new-password, #confirm-password {
-    padding: 8px;
-    border: 1px solid #ccc;
-    width: 100%;
-    box-sizing: border-box;
-    margin-left: 0px;
-    background-color: #624b7900;
-    border-radius: 10px;
-    width: 100%;
-    color: black
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    outline: none;
-    border: none;
-    background-color: #9900ff;
-    color: #fff;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 15px;
-    transition: 100ms;
-    cursor: pointer;
-    justify-content: center;
-    padding: 10px 20px;
-    margin-bottom: 10px;
-  }
+.profile-card {
+  width: 400px;
+  padding: 12px;
+  margin-right: 60px;
+  margin-left: 60px; /* Ajusta el margen izquierdo según tus necesidades */
+  background: rgba(18, 18, 18, 0.88);
+  /* Elevation/Outlined Dark */
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
+.other-card {
+  width: 400px;
+  padding: 12px;
+  margin-left: 20px;
+  margin-right: 60px;
+  background: rgba(18, 18, 18, 0.88);
+  /* Elevation/Outlined Dark */
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
 
-  
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .avatar-preview {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .avatar-preview img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-  }
+.other-card h2 {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
 
-  .password-modal {
-    background-color: #ffffff;
-    border-radius: 4px;
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .password-modal-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.other-card ul {
+  list-style: none;
+  padding: 0;
+}
 
+.other-card li {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
 
-  .modal-content {
-    position: relative;
-  }
-  
-  .modal-close-button {
-    position: relative;
-    top: 1px;
-    right: 1px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    margin-left: 300px;
-  }
-  
-  .modal-close-icon {
-    font-size: 10px;
-    line-height: 1;
-    color: black;
-  }
-  
-  .modal-title {
-    margin-top: 0;
-  }
-  
-  .avatar-selector-modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-  }
-  
-  .avatar-selector-modal-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  
-  .avatar-selector-modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    position: relative;
-  }
-  
-  .avatar-selector-modal-close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    font-size: 20px;
-    color: #888;
-  }
-  
-  .avatar-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 10px;
-    margin-top: 20px;
-  }
-  
-  
-  .avatar-option {
-    cursor: pointer;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .avatar-option img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  
-  .avatar-option.selected {
-    border: 2px solid #007bff;
-  }
-  
-  
-  .password-modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .password-modal-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .password-modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    position: relative;
-  }
-  
-  .password-modal-close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    font-size: 20px;
-    color: #888;
-  }
-  
-  .password-modal-title {
-    margin-top: 0;
-  }
-  
-  .modal-save-button {
-    outline: none;
-    border: none;
-    background-color: #9900ff;
-    color: #fff;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 15px;
-    transition: 100ms;
-    cursor: pointer;
-    justify-content: center;
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    width: 100%;
-  }
+.progress-bar {
+  background-color: #777;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color:  #9900ff;
+}
+
+.other-card p {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.other-card button {
+  background-color:  #9900ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.other-card button:hover {
+  background-color:  #9900ff;
+}
+.other-card button[disabled] {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.other-card button[disabled]:hover {
+  background-color: #999;
+}
+h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  font-style: normal;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.texto {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 0px;
+  background-color: #624b7900;
+  border-radius: 10px;
+  width: 100%;
+  color: #fff;
+}
+
+#new-password,
+#confirm-password {
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 0px;
+  background-color: #624b7900;
+  border-radius: 10px;
+  width: 100%;
+  color: black;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: #9900ff;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 15px;
+  transition: 100ms;
+  cursor: pointer;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.avatar-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.avatar-preview img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.password-modal {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.password-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+}
+
+.modal-close-button {
+  position: relative;
+  top: 1px;
+  right: 1px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 300px;
+}
+
+.modal-close-icon {
+  font-size: 10px;
+  line-height: 1;
+  color: black;
+}
+
+.modal-title {
+  margin-top: 0;
+}
+
+.avatar-selector-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.avatar-selector-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.avatar-selector-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.avatar-selector-modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 20px;
+  color: #888;
+}
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+
+.avatar-option {
+  cursor: pointer;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.avatar-option img {
+  max-width: 100%;
+  height: auto;
+}
+
+.avatar-option.selected {
+  border: 2px solid #007bff;
+}
+
+.password-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.password-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.password-modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 20px;
+  color: #888;
+}
+
+.password-modal-title {
+  margin-top: 0;
+}
+
+.modal-save-button {
+  outline: none;
+  border: none;
+  background-color: #9900ff;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 15px;
+  transition: 100ms;
+  cursor: pointer;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}

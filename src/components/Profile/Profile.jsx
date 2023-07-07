@@ -298,7 +298,49 @@ export function Profile() {
           <button type="submit">Guardar</button>
         </form>
       </div>
-
+      <div className="other-card">
+        <h1>
+          {" "}
+          <h2>Tu proceso de aprendizaje</h2>
+          <ul>
+            <li>
+              Resultado de tu quiz 1
+              <div className="progress-bar">
+                <div className="progress" style={{ width: "80%" }}></div>
+              </div>
+            </li>
+            <li>
+              Resultado de tu quiz 2
+              <div className="progress-bar">
+                <div className="progress" style={{ width: "60%" }}></div>
+              </div>
+            </li>
+            <li>
+              Resultado de tu quiz 3
+              <div className="progress-bar">
+                <div className="progress" style={{ width: "90%" }}></div>
+              </div>
+            </li>
+            <li>
+              Resultado de tu quiz 4
+              <div className="progress-bar">
+                <div className="progress" style={{ width: "40%" }}></div>
+              </div>
+            </li>
+            <li>
+              Resultado de tu quiz 5
+              <div className="progress-bar">
+                <div className="progress" style={{ width: "75%" }}></div>
+              </div>
+            </li>
+          </ul>
+          <p>
+            Para realizar el quiz final, debes completar y pasar los demás
+            quizzes.
+          </p>
+          <button disabled>Quiz Final</button>
+        </h1>
+      </div>
       {showAvatarSelector && (
         <Modal
           isOpen={showAvatarSelector}
