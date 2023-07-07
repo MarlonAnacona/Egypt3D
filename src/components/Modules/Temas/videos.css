@@ -1,0 +1,7 @@
+.contenedor-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Asegura que el contenedor ocupe todo el alto de la ventana */
+    width: 100%;
+  }

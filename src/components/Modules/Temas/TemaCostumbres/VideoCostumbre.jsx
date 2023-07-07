@@ -1,10 +1,10 @@
 import '../videos.css'
 import { Link } from 'react-router-dom'
 
-export function VideoHistoria(){
+export function VideoCostumbres(){
     return (<div className="contenedor-video">
         <div className='navegacion'>
-                    <Link to='/Historia4'>
+                    <Link to='/costumbres4'>
                         <img src="/images/navegarIzq.png" alt="flecha" className="flecha_navegationIzq" />
                     </Link>
                 </div>
@@ -25,7 +25,7 @@ export function VideoHistoria(){
               execution-while-out-of-viewport="true"
               execution-while-not-rendered="true"
               web-share="true"
-              src="https://www.youtube.com/embed/6a_gIpv_XD4"
+              src="https://www.youtube.com/embed/fEp-B8B1uqU"
             ></iframe>
     </div>)
 }

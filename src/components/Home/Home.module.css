@@ -22,6 +22,7 @@
 }
 
 .circle_button {
+    display: none;
     width: 50px;
     /* Ajusta el ancho y el alto según tus necesidades */
     height: 50px;
@@ -40,6 +41,7 @@
 }
 
 .circle_button1 {
+    display: none;
     width: 50px;
     /* Ajusta el ancho y el alto según tus necesidades */
     height: 50px;
@@ -55,6 +57,7 @@
     margin-top: 30vh;
 }
 .circle_button img {
+    display: none;
     width: 80%; /* Ajusta el tamaño de la imagen dentro del botón */
     height: 80%;
     object-fit: cover;
@@ -62,6 +65,7 @@
   }
 
   .circle_button1 img {
+    display: none;
     width: 90%; /* Ajusta el tamaño de la imagen dentro del botón */
     height: 90%;
     object-fit: cover;

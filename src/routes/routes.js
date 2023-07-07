@@ -28,7 +28,6 @@ import {
   import {Historia2} from "../components/Modules/Temas/TemaHistoria/Historia2";
   import {Historia3} from "../components/Modules/Temas/TemaHistoria/Historia3";
   import {Historia4} from "../components/Modules/Temas/TemaHistoria/Historia4";
-  // import { VideoHistoria } from "../components/Modules/Temas/TemaHistoria/VideoHistoria";
   import { Arquitectura1 } from "../components/Modules/Temas/TemaArqui/Arquitectura1";
   import { Arquitectura2 } from "../components/Modules/Temas/TemaArqui/Arquitectura2";
   import { Arquitectura3 } from "../components/Modules/Temas/TemaArqui/Arquitectura3";
@@ -45,6 +44,13 @@ import {
   import { Costumbres2 } from "../components/Modules/Temas/TemaCostumbres/Costumbres2";
   import { Costumbres3 } from "../components/Modules/Temas/TemaCostumbres/Costumbres3";
   import { Costumbres4 } from "../components/Modules/Temas/TemaCostumbres/Costumbres4";
+  import { VideoHistoria } from "../components/Modules/Temas/TemaHistoria/VideoHistoria";
+  import { VideoMitologia } from "../components/Modules/Temas/TemaMitologia/VideoMitologia";
+  import { VideoArquitectura } from "../components/Modules/Temas/TemaArqui/VideoArquitectura";
+  import { VideoArte } from "../components/Modules/Temas/TemaArte/VideoArte";
+  import { VideoCostumbres } from "../components/Modules/Temas/TemaCostumbres/VideoCostumbre";
+  
+  
 
   
   export function MyRoutes() {
@@ -89,6 +95,11 @@ import {
             <Route path="/costumbres2" element={<Costumbres2 />} />
             <Route path="/costumbres3" element={<Costumbres3 />} />
             <Route path="/costumbres4" element={<Costumbres4 />} />
+            <Route path="/videoHistoria" element={<VideoHistoria />} />
+            <Route path="/videoMitologia" element={<VideoMitologia />} />
+            <Route path="/videoCostumbres" element={<VideoCostumbres />} />
+            <Route path="/videoArquitectura" element={<VideoArquitectura />} />
+            <Route path="/videoArte" element={<VideoArte />} />
 
 
 
