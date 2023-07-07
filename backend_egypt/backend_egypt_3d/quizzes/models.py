@@ -12,6 +12,7 @@ class Quiz(models.Model):
 class QuizResult(models.Model):
     quiz_id = models.ForeignKey(Quiz, null=False, blank=False, on_delete=models.CASCADE)
     user_id = models.ForeignKey(UserProfile, null=False, blank=False, on_delete=models.CASCADE)
+    score = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=3, default=0.00)
 
     def __str__(self):
         return f'quiz: {self.quiz_id.subject} , user: {self.user_id.email}'

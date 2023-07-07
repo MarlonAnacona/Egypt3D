@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions
+from quizzes.models import Quiz
 from .serializers import QuestionSerializer, AnswerSerializer, QuestionCorrectAnswerSerializer, QuizResultCorrectQuestionSerializer
 from .models import Question, Answer, QuestionCorrectAnswer, QuizResultCorrectQuestion
 
@@ -12,6 +13,17 @@ class ListQuizQuestionsView(generics.ListAPIView):
     def get_queryset(self):
         quizID = self.request.query_params.get('quiz_id')
         return Question.objects.filter(quiz_id= quizID)
+    
+
+    def get_questions_for_final_quiz(self):
+        
+        quizzes = Quiz.objects.all()
+        questions = Question.objects.order_by('?')
+        output = Question.objects.none()
+
+        for quiz in quizzes:
+            random_ques = questions.filter(quiz_id= quiz.id)[:2]
+            
 
 
 class ListQuestionAnswersView(generics.ListAPIView):
