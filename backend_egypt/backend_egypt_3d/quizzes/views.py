@@ -9,3 +9,17 @@ class ListQuizesView(generics.ListAPIView):
     serializer_class = QuizSerializer
     permission_classes = [permissions.AllowAny]
     queryset = Quiz.objects.all()
+
+
+class CreateQuizResultView(generics.CreateAPIView):
+    serializer_class = QuizResultSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class ListQuizzesResultsView(generics.ListAPIView):
+    serializer_class = QuizResultSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def get_queryset(self):
+        userID = self.request.query_params.get('user_id')
+        return QuizResult.objects.filter(user_id= userID)

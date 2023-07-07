@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 from users.models import UserProfile
 
 # Create your models here.
@@ -12,7 +13,12 @@ class Quiz(models.Model):
 class QuizResult(models.Model):
     quiz_id = models.ForeignKey(Quiz, null=False, blank=False, on_delete=models.CASCADE)
     user_id = models.ForeignKey(UserProfile, null=False, blank=False, on_delete=models.CASCADE)
-    score = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=3, default=0.00)
+    score =models.IntegerField(
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(10)
+        ]
+    )
 
     def __str__(self):
         return f'quiz: {self.quiz_id.subject} , user: {self.user_id.email}'
