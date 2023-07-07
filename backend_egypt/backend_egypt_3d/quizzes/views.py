@@ -23,3 +23,10 @@ class ListQuizzesResultsView(generics.ListAPIView):
     def get_queryset(self):
         userID = self.request.query_params.get('user_id')
         return QuizResult.objects.filter(user_id= userID)
+    
+
+class UpdateQuizResultView(generics.UpdateAPIView):
+    queryset = QuizResult.objects.all()
+    serializer_class = QuizResultSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = 'pk'

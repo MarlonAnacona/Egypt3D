@@ -7,4 +7,5 @@ urlpatterns = [
     path('list/', views.ListQuizesView.as_view(), name='list_all_quizes'),
     path('create-result/', views.CreateQuizResultView.as_view(), name='create_quiz_result'),
     path('quiz-results/', views.ListQuizzesResultsView.as_view(), name='list_quizzes_results'),
+    path('update/quiz-result/<int:pk>', views.UpdateQuizResultView.as_view(), name='update_quiz_result'),
 ]
