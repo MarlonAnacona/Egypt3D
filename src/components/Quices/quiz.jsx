@@ -17,31 +17,51 @@ export function Quiz() {
 
   const loadQuestions = async () => {
     try {
-        const response = await getQuestions(1);
-        setCurrentQuestion(response);
-        await loadAnswer(response[0].id); // Asegúrate de que la respuesta tenga al menos un objeto
+      const response = await getQuestions(1);
+      setCurrentQuestion(response);
+      await loadAnswer(response[0].id);
     } catch (error) {
-        console.log("Error al obtener las preguntas del quiz:", error);
+      console.log("Error al obtener las preguntas del quiz:", error);
     }
-};
+  };
 
-const loadAnswer = async (questionId) => {
+  const loadAnswer = async (questionId) => {
     try {
-        const response = await getAnswers(questionId);
-        setAnswers(response);
+      const response = await getAnswers(questionId);
+      setAnswers(response);
+      await loadCorrectAnswer(response[0].question_id)
+      console.log(response)
     } catch (error) {
-        console.log("Error al obtener las respuestas del quiz:", error);
+      console.log("Error al obtener las respuestas del quiz:", error);
     }
-}
+  };
 
+  const loadCorrectAnswer = async (answerId) => {
+    try {
+      const response = await getCorrectAnswer(answerId);
+      setCorrectAnswer(response);
+      console.log(response)
+    } catch (error) {
+      console.log("Error al obtener las respuestas del quiz:", error);
+    }
+    // getCorrectAnswer(2)
+    //   .then((response) => {
+    //     setCorrectAnswer(response);
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log(
+    //       "Error al obtener las respuestas correctas del quiz:",
+    //       error
+    //     );
+    //   });
+  };
 
   useEffect(() => {
     getQuizz().then((response) => {
       const id = 1; // ID que deseas asignar
       const quiz = response.find((item) => item.id === id);
-      console.log(response);
       if (quiz) {
-        console.log(quiz.subject);
         setSubject(quiz.subject); // Acceso a la propiedad "subject" del objeto encontrado
       } else {
         console.log("No se encontró ningún objeto con el ID proporcionado.");
@@ -51,27 +71,17 @@ const loadAnswer = async (questionId) => {
 
   useEffect(() => {
     setCurrentQuestionIndex(0);
-
     loadQuestions();
-// eslint-disable-next-line react-hooks/exhaustive-deps
+    loadCorrectAnswer(2);
   }, []);
 
- 
-  useEffect(() => {
-    getCorrectAnswer(1)
-      .then((response) => {
-        setCorrectAnswer(response);
-      })
-      .catch((error) => {
-        console.log(
-          "Error al obtener las respuestas correctas del quiz:",
-          error
-        );
-      });
-  }, []);
-  useEffect(() => {
-    console.log("Current question index:", currentQuestionIndex);
-  }, [currentQuestionIndex]);
+  // useEffect(() => {
+  //   loadCorrectAnswer(1);
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log("Current question index:", currentQuestionIndex);
+  // }, [currentQuestionIndex]);
 
   /* A possible answer was clicked */
   const optionClicked = (selectedOption) => {
@@ -82,7 +92,6 @@ const loadAnswer = async (questionId) => {
     if (selectAnswer) {
       setScore(score + 1);
     }
-
     const nextQuestionIndex = currentQuestionIndex + 1;
     if (nextQuestionIndex < currentQuestion.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
@@ -90,17 +99,16 @@ const loadAnswer = async (questionId) => {
     } else {
       setShowResults(true);
     }
+    console.log(selectAnswer);
+    console.log(selectedOption);
   };
-
-
   /* Resets the game back to default */
   const restartGame = () => {
     setScore(0);
     setShowResults(false);
     setCurrentQuestionIndex(0);
-
     loadQuestions();
-    
+    loadCorrectAnswer(1)
   };
 
   return (
@@ -136,7 +144,7 @@ const loadAnswer = async (questionId) => {
           )}
           {/* List of possible answers  */}
           <ul className="ul">
-          {answers.map((answer) => {
+            {answers.map((answer) => {
               return (
                 <li
                   className="li"
