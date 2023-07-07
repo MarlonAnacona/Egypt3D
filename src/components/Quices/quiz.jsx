@@ -29,8 +29,8 @@ export function Quiz() {
     try {
       const response = await getAnswers(questionId);
       setAnswers(response);
-      await loadCorrectAnswer(response[0].question_id)
-      console.log(response)
+      await loadCorrectAnswer(response[0].question_id);
+      console.log(response);
     } catch (error) {
       console.log("Error al obtener las respuestas del quiz:", error);
     }
@@ -40,21 +40,10 @@ export function Quiz() {
     try {
       const response = await getCorrectAnswer(answerId);
       setCorrectAnswer(response);
-      console.log(response)
+      console.log(response);
     } catch (error) {
       console.log("Error al obtener las respuestas del quiz:", error);
     }
-    // getCorrectAnswer(2)
-    //   .then((response) => {
-    //     setCorrectAnswer(response);
-    //     console.log(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log(
-    //       "Error al obtener las respuestas correctas del quiz:",
-    //       error
-    //     );
-    //   });
   };
 
   useEffect(() => {
@@ -72,16 +61,7 @@ export function Quiz() {
   useEffect(() => {
     setCurrentQuestionIndex(0);
     loadQuestions();
-    loadCorrectAnswer(2);
   }, []);
-
-  // useEffect(() => {
-  //   loadCorrectAnswer(1);
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log("Current question index:", currentQuestionIndex);
-  // }, [currentQuestionIndex]);
 
   /* A possible answer was clicked */
   const optionClicked = (selectedOption) => {
@@ -92,6 +72,7 @@ export function Quiz() {
     if (selectAnswer) {
       setScore(score + 1);
     }
+    //Change questions
     const nextQuestionIndex = currentQuestionIndex + 1;
     if (nextQuestionIndex < currentQuestion.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
@@ -108,7 +89,6 @@ export function Quiz() {
     setShowResults(false);
     setCurrentQuestionIndex(0);
     loadQuestions();
-    loadCorrectAnswer(1)
   };
 
   return (
@@ -123,9 +103,10 @@ export function Quiz() {
         <div className="final-results">
           <h1 className="text">Final Results</h1>
           <h2 className="text">
-            {score} de {currentQuestion.length} correct - (
-            {(score / currentQuestion.length) * 100}%)
+            {score} de {currentQuestion.length} (
+            {(score / currentQuestion.length) * 100}%){" "}
           </h2>
+          <h2>{score > 6 ? "Pasaste!!" : "Repetir"}</h2>
           <button className="btn" onClick={() => restartGame()}>
             Volver a jugar
           </button>

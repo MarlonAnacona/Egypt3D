@@ -15,37 +15,42 @@ export function Quiz4() {
   const [score, setScore] = useState(0);
   const [subject, setSubject] = useState("");
 
-  const loadQuestions = () => {
-    getQuestions(4)
-      .then((response) => {
-        console.log(response);
-        setCurrentQuestion(response);
-        setCurrentQuestionIndex(0);
-
-        // Reiniciar el índice de la pregunta
-      })
-      .catch((error) => {
-        console.log("Error al obtener las preguntas del quiz:", error);
-      });
+  const loadQuestions = async () => {
+    try {
+      const response = await getQuestions(4);
+      setCurrentQuestion(response);
+      await loadAnswer(response[0].id);
+    } catch (error) {
+      console.log("Error al obtener las preguntas del quiz:", error);
+    }
   };
-  const loadAnswers = () => {
-    getAnswers(31)
-      .then((response) => {
-        console.log(response);
-        setAnswers(response);
-      })
-      .catch((error) => {
-        console.log("Error al obtener las respuestas del quiz:", error);
-      });
+
+  const loadAnswer = async (questionId) => {
+    try {
+      const response = await getAnswers(questionId);
+      setAnswers(response);
+      await loadCorrectAnswer(response[0].question_id);
+      console.log(response);
+    } catch (error) {
+      console.log("Error al obtener las respuestas del quiz:", error);
+    }
+  };
+
+  const loadCorrectAnswer = async (answerId) => {
+    try {
+      const response = await getCorrectAnswer(answerId);
+      setCorrectAnswer(response);
+      console.log(response);
+    } catch (error) {
+      console.log("Error al obtener las respuestas del quiz:", error);
+    }
   };
 
   useEffect(() => {
     getQuizz().then((response) => {
       const id = 4; // ID que deseas asignar
       const quiz = response.find((item) => item.id === id);
-      console.log(response);
       if (quiz) {
-        console.log(quiz.subject);
         setSubject(quiz.subject); // Acceso a la propiedad "subject" del objeto encontrado
       } else {
         console.log("No se encontró ningún objeto con el ID proporcionado.");
@@ -54,29 +59,9 @@ export function Quiz4() {
   }, []);
 
   useEffect(() => {
+    setCurrentQuestionIndex(0);
     loadQuestions();
   }, []);
-
-  useEffect(() => {
-    loadAnswers();
-  }, []);
-
-  useEffect(() => {
-    getCorrectAnswer(11)
-      .then((response) => {
-        setCorrectAnswer(response);
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(
-          "Error al obtener las respuestas correctas del quiz:",
-          error
-        );
-      });
-  }, []);
-  useEffect(() => {
-    console.log("Current question index:", currentQuestionIndex);
-  }, [currentQuestionIndex]);
 
   /* A possible answer was clicked */
   const optionClicked = (selectedOption) => {
@@ -86,20 +71,23 @@ export function Quiz4() {
     // Increment the score
     if (selectAnswer) {
       setScore(score + 1);
-      console.log("correcto");
     }
-    if (currentQuestionIndex + 1 < currentQuestion.length) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    //Change questions
+    const nextQuestionIndex = currentQuestionIndex + 1;
+    if (nextQuestionIndex < currentQuestion.length) {
+      setCurrentQuestionIndex(nextQuestionIndex);
+      loadAnswer(currentQuestion[nextQuestionIndex].id);
     } else {
       setShowResults(true);
     }
-    console.log("Option clicked:", selectedOption);
-    console.log("Current question index:", currentQuestionIndex);
+    console.log(selectAnswer);
+    console.log(selectedOption);
   };
   /* Resets the game back to default */
   const restartGame = () => {
     setScore(0);
     setShowResults(false);
+    setCurrentQuestionIndex(0);
     loadQuestions();
   };
 
@@ -115,9 +103,10 @@ export function Quiz4() {
         <div className="final-results">
           <h1 className="text">Final Results</h1>
           <h2 className="text">
-            {score} de {currentQuestion.length} correct - (
-            {(score / currentQuestion.length) * 100}%)
+            {score} de {currentQuestion.length} (
+            {(score / currentQuestion.length) * 100}%){" "}
           </h2>
+          <h2>{score > 6 ? "Pasaste!!" : "Repetir"}</h2>
           <button className="btn" onClick={() => restartGame()}>
             Volver a jugar
           </button>
@@ -136,7 +125,7 @@ export function Quiz4() {
           )}
           {/* List of possible answers  */}
           <ul className="ul">
-          {answers.map((answer) => {
+            {answers.map((answer) => {
               return (
                 <li
                   className="li"
