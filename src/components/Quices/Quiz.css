@@ -44,24 +44,29 @@
 
 
 .final-results {
-
   margin: 0 auto;
-
   /* Dimensions  */
   width: 50%; /* Can be in percentage also. */
   height: auto;
   margin-top: 64px;
-
   /* Visual  */
   background: rgba(18, 18, 18, 0.88);
+  padding: 15px;
   /* Elevation/Outlined Dark */
   box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.12);
   border-radius: 20px;
 
 }
 
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .btn {
-  background-color: red;
+  background-color: #9900ff;
   border: none;
   color: white;
   padding: 16px 24px;
@@ -70,5 +75,19 @@
   display: inline-block;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 24px;
+  border-radius: 12px;
+  margin-bottom: 12px; /* Espacio entre los botones */
+}
+
+.btn2 {
+  background-color: #9900ff;
+  border: none;
+  color: white;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
 }

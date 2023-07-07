@@ -5,7 +5,10 @@ import {
   getQuestions,
   getAnswers,
   getCorrectAnswer,
+  createResult,
 } from "../../Services/users";
+import Swal from "sweetalert2";
+import jwt_decode from "jwt-decode";
 export function Quiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
@@ -14,6 +17,38 @@ export function Quiz() {
   const [correctAnswer, setCorrectAnswer] = useState([]);
   const [score, setScore] = useState(0);
   const [subject, setSubject] = useState("");
+  const data = jwt_decode(localStorage.getItem("token"));
+
+  const handleSubmit = async () => {
+    // Aquí puedes enviar los datos actualizados al servidor
+    const body = {
+      score: score,
+      quiz_id: 1,
+      user_id: data.user_id,  
+    };
+    createResult(body)
+      .then((response) => {
+        Swal.fire({
+          icon: "success",
+          title: "Operación exitosa",
+          text: "Haz cambiado tus datos correctamente",
+          confirmButtonText: "Continuar",
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Opps algo salió mal",
+          text: "Ocurrió un error , intenta de nuevo",
+          confirmButtonText: "Continuar",
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+      });
+  };
 
   const loadQuestions = async () => {
     try {
@@ -91,14 +126,12 @@ export function Quiz() {
     setCurrentQuestionIndex(0);
     loadQuestions();
   };
-
+  
+ 
   return (
     <div className="cont-grande">
-      {/* 1. Header  */}
       <h1 className="text">Quiz de conocimientos de {subject}</h1>
-      {/* 2. Current Score  */}
       <h2 className="text">Puntaje: {score}</h2>
-      {/* 3. Show results or show the question game  */}
       {showResults ? (
         /* 4. Final Results */
         <div className="final-results">
@@ -108,14 +141,18 @@ export function Quiz() {
             {(score / currentQuestion.length) * 100}%){" "}
           </h2>
           <h2>{score > 6 ? "Pasaste!!" : "Repetir"}</h2>
+          <div className="button-container">
           <button className="btn" onClick={() => restartGame()}>
             Volver a jugar
           </button>
+          <button className="btn2" onClick={() => handleSubmit()}>
+            Guardar mi nota
+          </button>
+          </div>
         </div>
       ) : (
         /* 5. Question Card  */
         <div className="question-card">
-          {/* Current Question  */}
           <h2 className="text">
             Pregunta: {currentQuestionIndex + 1} de {currentQuestion.length}
           </h2>
@@ -124,7 +161,6 @@ export function Quiz() {
               {currentQuestion[currentQuestionIndex].question_text}
             </h3>
           )}
-          {/* List of possible answers  */}
           <ul className="ul">
             {answers.map((answer) => {
               return (

@@ -176,7 +176,7 @@ const getCorrectAnswer = async (id) => {
   );
   return response.data;
 };
-const createResult = async (body, id) => {
+const createResult = async (body) => {
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -184,9 +184,8 @@ const createResult = async (body, id) => {
       "Content-Type": "application/json",
     },
   };
-
-  const response = await Axios.patch(
-    endpoints.users.createResult + id,
+  const response = await Axios.post(
+    endpoints.users.createResult,
     body,
     config
   );
