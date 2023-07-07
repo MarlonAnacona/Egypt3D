@@ -61,6 +61,7 @@ export function Quiz() {
   useEffect(() => {
     setCurrentQuestionIndex(0);
     loadQuestions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /* A possible answer was clicked */

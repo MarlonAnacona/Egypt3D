@@ -28,7 +28,6 @@ export function Profile() {
         });
       }
     });
-
     getImagesDefault().then((response) => {
       // const profileImages = response.map(item => item.profile_image);
       setAvatars(response);
