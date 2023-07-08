@@ -12,16 +12,14 @@ export function Footer({ visible }) {
     return null; // No se muestra el footer si no es visible
   }
 
-
   return (
     <footer className={styles['footer-distributed']}>
-        <div className={styles['footer-right']}>
-
+      <div className={styles['footer-right']}>
+        {/* Enlaces de redes sociales */}
         <a href="/"><FontAwesomeIcon icon={faPaypal} /></a>
         <a href="/"><FontAwesomeIcon icon={faTwitter} /></a>
         <a href="/"><FontAwesomeIcon icon={faInstagram} /></a>
         <a href="https://github.com/MarlonAnacona/Egypt3D" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-
       </div>
       <div className={styles['footer-left']}>
         <p className={styles['footer-links']}>
@@ -34,7 +32,6 @@ export function Footer({ visible }) {
 
         <p>Egypt 3D &copy; 2023</p>
       </div>
-
     </footer>
   );
 }
