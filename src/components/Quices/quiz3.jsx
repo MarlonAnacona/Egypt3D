@@ -5,8 +5,14 @@ import {
   getQuestions,
   getAnswers,
   getCorrectAnswer,
+  createResult,
+  updateScore,
+  getResults,
 } from "../../Services/users";
+import Swal from "sweetalert2";
+import jwt_decode from "jwt-decode";
 export function Quiz3() {
+  const data = jwt_decode(localStorage.getItem("token"));
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState([]);
@@ -14,7 +20,72 @@ export function Quiz3() {
   const [correctAnswer, setCorrectAnswer] = useState([]);
   const [score, setScore] = useState(0);
   const [subject, setSubject] = useState("");
+  const [idQuiz, setIdQuiz] = useState(0);
 
+  const getScore = async () => {
+    getResults(data.user_id).then((response) => {
+      setIdQuiz(response[2].id);
+    });
+  };
+  const handleSubmit = async () => {
+    // Aquí puedes enviar los datos actualizados al servidor
+    const body = {
+      score: score,
+      quiz_id: 3,
+      user_id: data.user_id,
+    };
+    createResult(body)
+      .then((response) => {
+        Swal.fire({
+          icon: "success",
+          title: "Operación exitosa",
+          text: "Haz cambiado tus datos correctamente",
+          confirmButtonText: "Continuar",
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Opps algo salió mal",
+          text: "Ocurrió un error , intenta de nuevo",
+          confirmButtonText: "Continuar",
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+      });
+  };
+  const handleUpdate = async () => {
+    await getScore()
+    console.log(idQuiz);
+    const body = {
+      score: score,
+    };
+    updateScore(body, idQuiz)
+      .then((response) => {
+        Swal.fire({
+          icon: "success",
+          title: "Operación exitosa",
+          text: "Haz cambiado tus datos correctamente",
+          confirmButtonText: "Continuar",
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Opps algo salió mal",
+          text: "Ocurrió un error , intenta de nuevo",
+          confirmButtonText: "Continuar",
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+      });
+  };
   const loadQuestions = async () => {
     try {
       const response = await getQuestions(3);
@@ -30,7 +101,6 @@ export function Quiz3() {
       const response = await getAnswers(questionId);
       setAnswers(response);
       await loadCorrectAnswer(response[0].question_id);
-      console.log(response);
     } catch (error) {
       console.log("Error al obtener las respuestas del quiz:", error);
     }
@@ -40,7 +110,6 @@ export function Quiz3() {
     try {
       const response = await getCorrectAnswer(answerId);
       setCorrectAnswer(response);
-      console.log(response);
     } catch (error) {
       console.log("Error al obtener las respuestas del quiz:", error);
     }
@@ -56,13 +125,15 @@ export function Quiz3() {
         console.log("No se encontró ningún objeto con el ID proporcionado.");
       }
     });
+    getScore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     setCurrentQuestionIndex(0);
     loadQuestions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []);
+  }, []);
 
   /* A possible answer was clicked */
   const optionClicked = (selectedOption) => {
@@ -81,7 +152,6 @@ export function Quiz3() {
     } else {
       setShowResults(true);
     }
-    console.log(selectAnswer);
     console.log(selectedOption);
   };
   /* Resets the game back to default */
@@ -94,11 +164,8 @@ export function Quiz3() {
 
   return (
     <div className="cont-grande">
-      {/* 1. Header  */}
       <h1 className="text">Quiz de conocimientos de {subject}</h1>
-      {/* 2. Current Score  */}
       <h2 className="text">Puntaje: {score}</h2>
-      {/* 3. Show results or show the question game  */}
       {showResults ? (
         /* 4. Final Results */
         <div className="final-results">
@@ -108,14 +175,21 @@ export function Quiz3() {
             {(score / currentQuestion.length) * 100}%){" "}
           </h2>
           <h2>{score > 6 ? "Pasaste!!" : "Repetir"}</h2>
-          <button className="btn" onClick={() => restartGame()}>
-            Volver a jugar
-          </button>
+          <div className="button-container">
+            <button className="btn" onClick={() => restartGame()}>
+              Volver a jugar
+            </button>
+            <button className="btn2" onClick={() => handleSubmit()}>
+              Guardar mi nota
+            </button>
+            <button className="btn2" onClick={() => handleUpdate()}>
+              Actualizar mi nota
+            </button>
+          </div>
         </div>
       ) : (
         /* 5. Question Card  */
         <div className="question-card">
-          {/* Current Question  */}
           <h2 className="text">
             Pregunta: {currentQuestionIndex + 1} de {currentQuestion.length}
           </h2>
@@ -124,7 +198,6 @@ export function Quiz3() {
               {currentQuestion[currentQuestionIndex].question_text}
             </h3>
           )}
-          {/* List of possible answers  */}
           <ul className="ul">
             {answers.map((answer) => {
               return (

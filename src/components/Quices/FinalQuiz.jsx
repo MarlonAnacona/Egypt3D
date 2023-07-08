@@ -11,7 +11,7 @@ import {
 } from "../../Services/users";
 import Swal from "sweetalert2";
 import jwt_decode from "jwt-decode";
-export function Quiz4() {
+export function FinalQuiz() {
   const data = jwt_decode(localStorage.getItem("token"));
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
@@ -24,14 +24,14 @@ export function Quiz4() {
 
   const getScore = async () => {
     getResults(data.user_id).then((response) => {
-      setIdQuiz(response[3].id);
+      setIdQuiz(response[5].id);
     });
   };
   const handleSubmit = async () => {
     // Aquí puedes enviar los datos actualizados al servidor
     const body = {
       score: score,
-      quiz_id: 4,
+      quiz_id: 6,
       user_id: data.user_id,
     };
     createResult(body)
@@ -88,7 +88,7 @@ export function Quiz4() {
   };
   const loadQuestions = async () => {
     try {
-      const response = await getQuestions(4);
+      const response = await getQuestions(6);
       setCurrentQuestion(response);
       await loadAnswer(response[0].id);
     } catch (error) {
@@ -117,7 +117,7 @@ export function Quiz4() {
 
   useEffect(() => {
     getQuizz().then((response) => {
-      const id = 4; // ID que deseas asignar
+      const id = 6; // ID que deseas asignar
       const quiz = response.find((item) => item.id === id);
       if (quiz) {
         setSubject(quiz.subject); // Acceso a la propiedad "subject" del objeto encontrado

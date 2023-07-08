@@ -16,6 +16,7 @@ const endpoints = {
     getCorrectAnswer: `${URL}/questions/`,
     result:`${URL}/quizzes/create-result/`,
     getResult:`${URL}/quizzes/quiz-results/`,
+    updateResult:`${URL}/quizzes/update/quiz-result/`,
   },
   products: {},
   workers: {},

@@ -10,11 +10,25 @@ import {
   updatePassword,
   updateImage,
   getImageProfile,
+  getResults,
 } from "../../Services/users";
 import Swal from "sweetalert2";
-
+import { Link } from "react-router-dom";
 export function Profile() {
   const data = jwt_decode(localStorage.getItem("token"));
+  const [scores, setScores] = useState([]);
+  const getScore = async () => {
+    try {
+      const response = await getResults(data.user_id);
+      setScores(response.map((result) => result.score));
+    } catch (error) {
+      console.error('Error fetching scores:', error);
+    }
+  };
+  // useEffect(() => {
+  //   console.log(scores);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
   useEffect(() => {
     // Obtener los datos del usuario al cargar el componente
     getUser(data.user_id).then((response) => {
@@ -27,12 +41,13 @@ export function Profile() {
           console.log(imageResponse.profile_image);
         });
       }
+      getScore();
+      console.log(scores)
     });
     getImagesDefault().then((response) => {
       // const profileImages = response.map(item => item.profile_image);
       setAvatars(response);
     });
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -91,7 +106,6 @@ export function Profile() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showAvatarSelector, setShowAvatarSelector] = useState(false);
   const [avatars, setAvatars] = useState(null);
-
   const handleAvatarSelection = (selectedAvatar) => {
     setSelectedImage(selectedAvatar);
   };
@@ -236,6 +250,11 @@ export function Profile() {
         });
       });
   };
+  const calculateProgressWidth = (score) => {
+    console.log(score)
+    return `${(score / 10) * 100}%`;
+  };
+  const isQuizFinalEnabled = scores.every((score) => score >= 6);
 
   return (
     <div className="container">
@@ -302,42 +321,25 @@ export function Profile() {
           {" "}
           <h2>Tu proceso de aprendizaje</h2>
           <ul>
-            <li>
-              Resultado de tu quiz 1
+          {scores.map((score, index) => (
+            <li key={index}>
+              {`Resultado de tu quiz ${index + 1}`}
               <div className="progress-bar">
-                <div className="progress" style={{ width: "80%" }}></div>
+                <div
+                  className="progress"
+                  style={{ width: calculateProgressWidth(score) }}
+                ></div>
               </div>
             </li>
-            <li>
-              Resultado de tu quiz 2
-              <div className="progress-bar">
-                <div className="progress" style={{ width: "60%" }}></div>
-              </div>
-            </li>
-            <li>
-              Resultado de tu quiz 3
-              <div className="progress-bar">
-                <div className="progress" style={{ width: "90%" }}></div>
-              </div>
-            </li>
-            <li>
-              Resultado de tu quiz 4
-              <div className="progress-bar">
-                <div className="progress" style={{ width: "40%" }}></div>
-              </div>
-            </li>
-            <li>
-              Resultado de tu quiz 5
-              <div className="progress-bar">
-                <div className="progress" style={{ width: "75%" }}></div>
-              </div>
-            </li>
+          ))}
           </ul>
           <p>
-            Para realizar el quiz final, debes completar y pasar los demás
+            Para realizar el quiz final, pasar los demás
             quizzes.
           </p>
-          <button disabled>Quiz Final</button>
+          <Link to="/final-quiz">
+            <button disabled={!isQuizFinalEnabled}>Quiz Final</button>
+          </Link>
         </h1>
       </div>
       {showAvatarSelector && (

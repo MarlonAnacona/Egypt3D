@@ -6,10 +6,13 @@ import {
   getAnswers,
   getCorrectAnswer,
   createResult,
+  updateScore,
+  getResults,
 } from "../../Services/users";
 import Swal from "sweetalert2";
 import jwt_decode from "jwt-decode";
 export function Quiz() {
+  const data = jwt_decode(localStorage.getItem("token"));
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState([]);
@@ -17,14 +20,19 @@ export function Quiz() {
   const [correctAnswer, setCorrectAnswer] = useState([]);
   const [score, setScore] = useState(0);
   const [subject, setSubject] = useState("");
-  const data = jwt_decode(localStorage.getItem("token"));
+  const [idQuiz, setIdQuiz] = useState(0);
 
+  const getScore = async () => {
+    getResults(data.user_id).then((response) => {
+      setIdQuiz(response[0].id);
+    });
+  };
   const handleSubmit = async () => {
     // Aquí puedes enviar los datos actualizados al servidor
     const body = {
       score: score,
       quiz_id: 1,
-      user_id: data.user_id,  
+      user_id: data.user_id,
     };
     createResult(body)
       .then((response) => {
@@ -49,7 +57,35 @@ export function Quiz() {
         });
       });
   };
-
+  const handleUpdate = async () => {
+    await getScore()
+    console.log(idQuiz);
+    const body = {
+      score: score,
+    };
+    updateScore(body, idQuiz)
+      .then((response) => {
+        Swal.fire({
+          icon: "success",
+          title: "Operación exitosa",
+          text: "Haz cambiado tus datos correctamente",
+          confirmButtonText: "Continuar",
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Opps algo salió mal",
+          text: "Ocurrió un error , intenta de nuevo",
+          confirmButtonText: "Continuar",
+          allowOutsideClick: false,
+          showCancelButton: false,
+        });
+      });
+  };
   const loadQuestions = async () => {
     try {
       const response = await getQuestions(1);
@@ -65,7 +101,6 @@ export function Quiz() {
       const response = await getAnswers(questionId);
       setAnswers(response);
       await loadCorrectAnswer(response[0].question_id);
-      console.log(response);
     } catch (error) {
       console.log("Error al obtener las respuestas del quiz:", error);
     }
@@ -75,7 +110,6 @@ export function Quiz() {
     try {
       const response = await getCorrectAnswer(answerId);
       setCorrectAnswer(response);
-      console.log(response);
     } catch (error) {
       console.log("Error al obtener las respuestas del quiz:", error);
     }
@@ -91,6 +125,8 @@ export function Quiz() {
         console.log("No se encontró ningún objeto con el ID proporcionado.");
       }
     });
+    getScore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -116,7 +152,6 @@ export function Quiz() {
     } else {
       setShowResults(true);
     }
-    console.log(selectAnswer);
     console.log(selectedOption);
   };
   /* Resets the game back to default */
@@ -126,8 +161,7 @@ export function Quiz() {
     setCurrentQuestionIndex(0);
     loadQuestions();
   };
-  
- 
+
   return (
     <div className="cont-grande">
       <h1 className="text">Quiz de conocimientos de {subject}</h1>
@@ -142,12 +176,15 @@ export function Quiz() {
           </h2>
           <h2>{score > 6 ? "Pasaste!!" : "Repetir"}</h2>
           <div className="button-container">
-          <button className="btn" onClick={() => restartGame()}>
-            Volver a jugar
-          </button>
-          <button className="btn2" onClick={() => handleSubmit()}>
-            Guardar mi nota
-          </button>
+            <button className="btn" onClick={() => restartGame()}>
+              Volver a jugar
+            </button>
+            <button className="btn2" onClick={() => handleSubmit()}>
+              Guardar mi nota
+            </button>
+            <button className="btn2" onClick={() => handleUpdate()}>
+              Actualizar mi nota
+            </button>
           </div>
         </div>
       ) : (

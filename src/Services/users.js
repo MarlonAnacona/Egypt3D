@@ -185,7 +185,7 @@ const createResult = async (body) => {
     },
   };
   const response = await Axios.post(
-    endpoints.users.createResult,
+    endpoints.users.result,
     body,
     config
   );
@@ -201,12 +201,27 @@ const getResults = async (id) => {
   };
 
   const response = await Axios.get(
-    endpoints.users.getResult + "?quiz_id=" + id,
+    endpoints.users.getResult + "?user_id=" + id,
     config
   );
   return response.data;
 };
+const updateScore = async (body, id) => {
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+      accept: "*/*",
+      "Content-Type": "application/json",
+    },
+  };
 
+  const response = await Axios.patch(
+    endpoints.users.updateResult + id,
+    body,
+    config
+  );
+  return response.data;
+};
 export {
   addUser,
   loginUser,
@@ -222,4 +237,5 @@ export {
   getCorrectAnswer,
   createResult,
   getResults,
+  updateScore
 };

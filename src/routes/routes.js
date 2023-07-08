@@ -18,6 +18,7 @@ import {
   import { Quiz3 } from "../components/Quices/quiz3";
   import { Quiz4 } from "../components/Quices/quiz4";
   import { Quiz5 } from "../components/Quices/quiz5";
+  import { FinalQuiz } from "../components/Quices/FinalQuiz";
   import { Profile } from "../components/Profile/Profile";
   import { LoginContext } from "../components/context/LoginContext";
   import { useContext } from "react";
@@ -71,6 +72,7 @@ import {
             <Route path="/quices3" element={<Quiz3 />} />
             <Route path="/quices4" element={<Quiz4 />} />
             <Route path="/quices5" element={<Quiz5 />} />
+            <Route path="/final-quiz" element={<FinalQuiz/>} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
