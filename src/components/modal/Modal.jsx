@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { AiOutlineClose } from "react-icons/ai";
-import "./Modal.css"; 
+import "./Modal.css";
 
 Modal.setAppElement("#root");
 
@@ -23,11 +23,16 @@ const ImagenModal = ({ isOpen, onRequestClose }) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} className="ImagenModal" overlayClassName="Overlay">
-    <button onClick={onRequestClose} className="CloseButton"><AiOutlineClose /></button>
+      {/* Botón para cerrar el modal */}
+      <button onClick={onRequestClose} className="CloseButton"><AiOutlineClose /></button>
+      {/* Título del modal */}
       <h2 className="ModalTitle">GUIA EGYPT 3D</h2>
+      {/* Renderizar cada guía */}
       {guides.map(({ number, description }) => (
         <div key={number}>
+          {/* Mostrar imagen correspondiente a la guía */}
           <img src={`/images/guia${number}.png`} alt={`Descripción de Guía ${number}`} />
+          {/* Mostrar descripción de la guía */}
           <p>{description}</p>
         </div>
       ))}

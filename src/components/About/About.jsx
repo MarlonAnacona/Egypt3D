@@ -1,8 +1,7 @@
 import styles from "./About.module.css";
 
 export function About() {
-  //...
-
+  /* Lista de autores */
   const authors = [
     { name: "MARLON ANDRES ANACONA", image: "/images/marlonFondo.jpg", characterImage: "/images/marlon.jpg" },
     { name: "ALEXANDER VALENCIA", image: "/images/pepa.png", characterImage: "/images/pepa2.png" },
@@ -13,6 +12,7 @@ export function About() {
 
   return (
     <div className={styles.inicio}>
+      {/* Mapear la lista de autores */}
       {authors.map((author, index) => (
         <div key={index} className={styles.card}>
           <div className={styles.wrapper}>
@@ -23,7 +23,7 @@ export function About() {
             />
           </div>
           <div className={styles.title + " " + styles.authorTitle}>
-            {author.name}{" "}
+            {author.name}
           </div>
 
           <img
