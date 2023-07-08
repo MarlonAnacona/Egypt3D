@@ -57,7 +57,6 @@ const Navbar = () => {
         {/* Mostrar elementos del menú según el estado de inicio de sesión */}
         {isLogged && <a href ="/profile" className={styles['nav-items']}>{name}</a>}
 
-        {isLogged && <a href="/profile">Perfil</a>}
         {isLogged && <a href="/modules">Modulos</a>}
         
         {!isLogged && <a href="/">Inicio</a>}
