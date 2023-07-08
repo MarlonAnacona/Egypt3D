@@ -20,7 +20,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'id': {'read_only': True},
             'password': {'write_only': True},
-            # 'profile_image': {'read_only': True}
+            #'profile_image': {'read_only': True}
              }
                 
     
@@ -48,7 +48,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         
         instance.username = validated_data.get('username', instance.username)
         instance.email = validated_data.get('email', instance.email)   
-        instance.profile_image = validated_data.get('profile_image', instance.email)   
+        instance.profile_image = validated_data.get('profile_image', instance.profile_image)   
         instance.save()
 
         return instance
