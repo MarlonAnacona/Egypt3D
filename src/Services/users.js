@@ -73,7 +73,7 @@ const updateImage = async (body) => {
   return response.data;
 };
 
-// Servicio para cambiar la contraseña
+//Servicio para cambiar la contraseña
 const updatePassword = async (body) => {
   const config = {
     headers: {
@@ -91,7 +91,6 @@ const updatePassword = async (body) => {
   return response.data;
 };
 
-// Obtener imágenes predeterminadas
 const getImagesDefault = async () => {
   const config = {
     headers: {
@@ -105,7 +104,6 @@ const getImagesDefault = async () => {
   return response.data;
 };
 
-// Obtener imagen de perfil por ID
 const getImageProfile = async (id) => {
   const config = {
     headers: {
@@ -119,7 +117,6 @@ const getImageProfile = async (id) => {
   return response.data;
 };
 
-// Obtener cuestionario
 const getQuizz = async () => {
   const config = {
     headers: {
@@ -133,7 +130,6 @@ const getQuizz = async () => {
   return response.data;
 };
 
-// Obtener preguntas por ID de cuestionario
 const getQuestions = async (id) => {
   const config = {
     headers: {
@@ -149,8 +145,6 @@ const getQuestions = async (id) => {
   );
   return response.data;
 };
-
-// Obtener respuestas por ID de pregunta
 const getAnswers = async (id) => {
   const config = {
     headers: {
@@ -167,7 +161,6 @@ const getAnswers = async (id) => {
   return response.data;
 };
 
-// Obtener respuesta correcta por ID de pregunta
 const getCorrectAnswer = async (id) => {
   const config = {
     headers: {
@@ -183,9 +176,7 @@ const getCorrectAnswer = async (id) => {
   );
   return response.data;
 };
-
-// Crear resultado de cuestionario por ID de usuario
-const createResult = async (body, id) => {
+const createResult = async (body) => {
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -193,16 +184,13 @@ const createResult = async (body, id) => {
       "Content-Type": "application/json",
     },
   };
-
-  const response =await Axios.patch(
-    endpoints.users.createResult + id,
+  const response = await Axios.post(
+    endpoints.users.result,
     body,
     config
   );
   return response.data;
 };
-
-// Obtener resultados de cuestionario por ID de usuario
 const getResults = async (id) => {
   const config = {
     headers: {

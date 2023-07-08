@@ -17,7 +17,8 @@ const endpoints = {
     getAnswers: `${URL}/questions/`, // URL para obtener respuestas por ID de pregunta
     getCorrectAnswer: `${URL}/questions/`, // URL para obtener la respuesta correcta por ID de pregunta
     result: `${URL}/quizzes/create-result/`, // URL para crear un resultado de cuestionario
-    getResult: `${URL}/quizzes/quiz-results/`, // URL para obtener resultados de cuestionario
+    getResult: `${URL}/quizzes/quiz-results/`,// URL para obtener resultados de cuestionario
+    updateResult:`${URL}/quizzes/update/quiz-result/`, // URL para actualizar resultados de cuestionario
   },
   products: {},
   workers: {},
